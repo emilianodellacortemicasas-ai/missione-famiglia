@@ -638,8 +638,8 @@ function notify(){
 function sub(ref, key, multi){
   ref.onSnapshot(
     (snap)=>{
-      if(multi){ S[key] = snap.docs.map(d=>({id:d.id, ...d.data()})); }
-      else { S[key] = snap.exists ? {id:snap.id, ...snap.data()} : null; }
+      if(multi){ S[key] = snap.docs.map(d=>({...d.data(), id:d.id})); }
+      else { S[key] = snap.exists ? {...snap.data(), id:snap.id} : null; }
       notify();
     },
     (err)=>{ console.warn('db error on', key, err); }
