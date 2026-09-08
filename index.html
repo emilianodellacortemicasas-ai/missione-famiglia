@@ -1,0 +1,2397 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Missione Famiglia</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Missione Famiglia">
+<meta name="theme-color" content="#6C5CE7">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjNkM1Q0U3Ii8+PHBhdGggZD0iTTUwIDEyIEw2MSAzOCBMODkgNDEgTDY4IDYwIEw3NCA4OCBMNTAgNzQgTDI2IDg4IEwzMiA2MCBMMTEgNDEgTDM5IDM4IFoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjNkM1Q0U3Ii8+PHBhdGggZD0iTTUwIDEyIEw2MSAzOCBMODkgNDEgTDY4IDYwIEw3NCA4OCBMNTAgNzQgTDI2IDg4IEwzMiA2MCBMMTEgNDEgTDM5IDM4IFoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --bg:#F5F3FB;
+    --surface:#FFFFFF;
+    --surface-2:#EDEAF8;
+    --surface-3:#E3E0F4;
+    --ink:#251F3A;
+    --ink-soft:#6C6584;
+    --ink-faint:#9891AC;
+    --border:#E1DDF2;
+    --primary:#6C5CE7;
+    --primary-ink:#FFFFFF;
+    --primary-soft:#EEEBFC;
+    --primary-deep:#5142C4;
+    --star:#FFB020;
+    --star-deep:#B97300;
+    --star-soft:#FFF1D9;
+    --good:#1FA97F;
+    --good-soft:#DFF6EE;
+    --warn:#F2994A;
+    --warn-soft:#FDEEDD;
+    --warm:#FF7A59;
+    --warm-soft:#FFE9E2;
+    --danger:#E85D5D;
+    --danger-soft:#FBE4E4;
+    --bg-wash-1: rgba(108,92,231,.08);
+    --bg-wash-2: rgba(255,176,32,.10);
+    --shadow-1: 0 1px 2px rgba(37,31,58,.06), 0 1px 1px rgba(37,31,58,.04);
+    --shadow-2: 0 8px 24px rgba(37,31,58,.10), 0 2px 6px rgba(37,31,58,.06);
+    --shadow-3: 0 20px 48px rgba(37,31,58,.20);
+    --radius-s: 10px;
+    --radius-m: 16px;
+    --radius-l: 22px;
+    --radius-xl: 28px;
+    --font-display:'Baloo 2', 'Segoe UI Rounded', system-ui, sans-serif;
+    --font-body:'Figtree', system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B1730;
+      --surface:#241F3D;
+      --surface-2:#2C2649;
+      --surface-3:#352E58;
+      --ink:#F1EEFB;
+      --ink-soft:#B8B2D4;
+      --ink-faint:#8A82AC;
+      --border:#3B335E;
+      --primary:#8B7CF3;
+      --primary-ink:#1B1730;
+      --primary-soft:#332C58;
+      --primary-deep:#A79AF6;
+      --star:#FFC24D;
+      --star-deep:#FFD98A;
+      --star-soft:#3D3120;
+      --good:#3FCB9C;
+      --good-soft:#1B3C31;
+      --warn:#FFA85C;
+      --warn-soft:#3E2C1B;
+      --warm:#FF9078;
+      --warm-soft:#3E2721;
+      --danger:#F17A7A;
+      --danger-soft:#3E2323;
+      --bg-wash-1: rgba(139,124,243,.16);
+      --bg-wash-2: rgba(255,194,77,.10);
+      --shadow-1: 0 1px 2px rgba(0,0,0,.3);
+      --shadow-2: 0 8px 24px rgba(0,0,0,.35);
+      --shadow-3: 0 20px 48px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B1730;
+    --surface:#241F3D;
+    --surface-2:#2C2649;
+    --surface-3:#352E58;
+    --ink:#F1EEFB;
+    --ink-soft:#B8B2D4;
+    --ink-faint:#8A82AC;
+    --border:#3B335E;
+    --primary:#8B7CF3;
+    --primary-ink:#1B1730;
+    --primary-soft:#332C58;
+    --primary-deep:#A79AF6;
+    --star:#FFC24D;
+    --star-deep:#FFD98A;
+    --star-soft:#3D3120;
+    --good:#3FCB9C;
+    --good-soft:#1B3C31;
+    --warn:#FFA85C;
+    --warn-soft:#3E2C1B;
+    --warm:#FF9078;
+    --warm-soft:#3E2721;
+    --danger:#F17A7A;
+    --danger-soft:#3E2323;
+    --bg-wash-1: rgba(139,124,243,.16);
+    --bg-wash-2: rgba(255,194,77,.10);
+    --shadow-1: 0 1px 2px rgba(0,0,0,.3);
+    --shadow-2: 0 8px 24px rgba(0,0,0,.35);
+    --shadow-3: 0 20px 48px rgba(0,0,0,.5);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:
+      radial-gradient(720px 480px at 12% -8%, var(--bg-wash-1), transparent 60%),
+      radial-gradient(640px 420px at 108% 12%, var(--bg-wash-2), transparent 60%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--font-body); font-size:15.5px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:700; margin:0; text-wrap:balance; color:var(--ink); }
+  p{margin:0}
+  button{font-family:inherit; font-size:inherit; cursor:pointer;}
+  input,select,textarea{font-family:inherit; font-size:inherit;}
+  a{color:inherit}
+  ::selection{ background:var(--primary); color:var(--primary-ink); }
+  .num{ font-variant-numeric:tabular-nums; }
+  [hidden]{display:none!important}
+  :focus-visible{ outline:3px solid var(--primary); outline-offset:2px; border-radius:6px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ============ SHELL ============ */
+  #app{ min-height:100vh; display:flex; flex-direction:column; }
+  .topbar{
+    position:sticky; top:0; z-index:30;
+    display:flex; align-items:center; gap:12px;
+    padding:12px 16px; background:var(--surface);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.05rem; }
+  .brand-badge{ width:34px; height:34px; border-radius:11px; background:linear-gradient(155deg,var(--primary),var(--primary-deep)); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:var(--shadow-1); flex:none; }
+  .brand-badge .star-ico{ width:18px; height:18px; filter:none; }
+  .topbar-spacer{ flex:1; }
+  .icon-btn{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink-soft); font-size:18px;
+  }
+  .icon-btn:hover{ background:var(--surface-2); }
+  .pill-btn{
+    display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink); padding:8px 14px; border-radius:999px;
+    font-weight:600; font-size:.88rem;
+  }
+  .pill-btn:hover{ background:var(--surface-2); }
+
+  main{ flex:1; width:100%; max-width:1080px; margin:0 auto; padding:18px 16px 100px; }
+  @media (min-width:720px){ main{ padding:28px 24px 60px; } }
+
+  .bottom-nav{
+    position:sticky; bottom:0; z-index:30; display:flex; background:var(--surface);
+    border-top:1px solid var(--border); padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+    gap:2px;
+  }
+  .bottom-nav button{
+    flex:1; display:flex; flex-direction:column; align-items:center; gap:2px;
+    background:none; border:none; color:var(--ink-faint); padding:8px 4px 6px; border-radius:12px;
+    font-size:.72rem; font-weight:700;
+  }
+  .bottom-nav button .ico{ font-size:20px; }
+  .bottom-nav button.active{ color:var(--primary); background:var(--primary-soft); }
+  @media (min-width:720px){ .bottom-nav{ display:none; } }
+
+  .side-tabs{ display:none; }
+  @media (min-width:720px){
+    .side-tabs{
+      display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; border-bottom:1px solid var(--border); padding-bottom:14px;
+    }
+    .side-tabs button{
+      background:var(--surface); border:1px solid var(--border); color:var(--ink-soft);
+      padding:9px 16px; border-radius:999px; font-weight:700; font-size:.86rem; display:flex; align-items:center; gap:7px;
+    }
+    .side-tabs button.active{ background:var(--primary); color:var(--primary-ink); border-color:var(--primary); }
+    .side-tabs button:hover:not(.active){ background:var(--surface-2); }
+  }
+
+  /* ============ COMPONENTS ============ */
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-l);
+    padding:18px; box-shadow:var(--shadow-1);
+  }
+  .grid{ display:grid; gap:14px; }
+  .grid-2{ grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .grid-3{ grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+  .stack{ display:flex; flex-direction:column; gap:14px; }
+  .row{ display:flex; align-items:center; gap:10px; }
+  .row-between{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .wrap{ flex-wrap:wrap; }
+
+  .section-title{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; gap:10px; }
+  .section-title h2{ font-size:1.15rem; }
+  .eyebrow{ text-transform:uppercase; letter-spacing:.09em; font-size:.72rem; font-weight:800; color:var(--ink-faint); }
+
+  .avatar{
+    width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:22px; flex:none; box-shadow:inset 0 0 0 2px rgba(255,255,255,.5);
+  }
+  .avatar.lg{ width:76px; height:76px; font-size:38px; }
+  .avatar.xl{ width:108px; height:108px; font-size:54px; }
+
+  .star-chip{
+    display:inline-flex; align-items:center; gap:5px; background:var(--star-soft);
+    color:var(--star-deep); box-shadow:var(--shadow-1);
+    padding:6px 12px; border-radius:999px; font-family:var(--font-display); font-weight:700; font-size:.95rem;
+  }
+  .star-chip.lg{ font-size:1.5rem; padding:10px 18px; gap:8px; }
+  .star-chip .s{ font-size:1.1em; display:inline-flex; }
+  .star-ico{ width:1em; height:1em; display:inline-block; vertical-align:-0.14em; filter:drop-shadow(0 1px 0 rgba(0,0,0,.08)); }
+  .hero-deco{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+  .hero-star{ position:absolute; color:var(--star); }
+  .hero-star .star-ico{ width:100%; height:100%; filter:none; }
+
+  .badge{
+    display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:999px;
+    font-size:.76rem; font-weight:800; letter-spacing:.01em;
+  }
+  .badge.todo{ background:var(--surface-3); color:var(--ink-soft); }
+  .badge.pending{ background:var(--warn-soft); color:var(--warn); }
+  .badge.approved{ background:var(--good-soft); color:var(--good); }
+  .badge.postponed{ background:var(--surface-3); color:var(--ink-faint); }
+  .badge.requested{ background:var(--warn-soft); color:var(--warn); }
+  .badge.rejected{ background:var(--danger-soft); color:var(--danger); }
+  .badge.cancelled{ background:var(--surface-3); color:var(--ink-faint); }
+  .badge.used{ background:var(--primary-soft); color:var(--primary-deep); }
+  .badge.team{ background:var(--warm-soft); color:var(--warm); }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:7px;
+    border:none; border-radius:var(--radius-s); padding:11px 18px; font-weight:700; font-size:.92rem;
+    background:var(--surface-2); color:var(--ink);
+  }
+  .btn:hover{ filter:brightness(1.03); }
+  .btn:active{ transform:translateY(1px); }
+  .btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .btn.primary{ background:var(--primary); color:var(--primary-ink); box-shadow:var(--shadow-1); }
+  .btn.good{ background:var(--good); color:#fff; }
+  .btn.warn{ background:var(--warn); color:#fff; }
+  .btn.danger{ background:var(--danger); color:#fff; }
+  .btn.ghost{ background:transparent; color:var(--ink-soft); border:1px solid var(--border); }
+  .btn.block{ width:100%; }
+  .btn.sm{ padding:8px 13px; font-size:.82rem; border-radius:9px; }
+
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:.82rem; font-weight:700; color:var(--ink-soft); }
+  .field input[type=text],.field input[type=number],.field input[type=password],
+  .field input[type=date],.field select,.field textarea{
+    background:var(--surface-2); border:1.5px solid transparent; border-radius:var(--radius-s);
+    padding:11px 12px; color:var(--ink); width:100%;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--primary); background:var(--surface); }
+  .field textarea{ resize:vertical; min-height:64px; }
+  .field .hint{ font-size:.76rem; color:var(--ink-faint); }
+  .checkrow{ display:flex; align-items:center; gap:9px; font-size:.88rem; font-weight:600; }
+  .checkrow input{ width:18px; height:18px; accent-color:var(--primary); }
+  .daychips{ display:flex; gap:6px; flex-wrap:wrap; }
+  .daychip{
+    width:38px; height:38px; border-radius:50%; border:1.5px solid var(--border); background:var(--surface);
+    color:var(--ink-soft); font-weight:800; font-size:.78rem; display:flex; align-items:center; justify-content:center;
+  }
+  .daychip.on{ background:var(--primary); border-color:var(--primary); color:var(--primary-ink); }
+
+  .mission-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+    padding:15px 16px; box-shadow:var(--shadow-1); display:flex; flex-direction:column; gap:10px;
+    transition:box-shadow .18s ease, transform .18s ease;
+  }
+  .mission-card.is-approved{ background:var(--good-soft); border-color:transparent; }
+  .mission-card.pop{ animation:popIn .5s cubic-bezier(.2,1.4,.4,1); }
+  @keyframes popIn{ 0%{ transform:scale(.94); } 45%{ transform:scale(1.02); } 100%{ transform:scale(1); } }
+
+  .empty{
+    text-align:center; padding:40px 20px; color:var(--ink-faint);
+  }
+  .empty .emoji{ font-size:2.4rem; display:block; margin-bottom:10px; }
+
+  .toast-stack{ position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:200; display:flex; flex-direction:column; gap:8px; align-items:center; width:min(92vw,420px); }
+  .toast{
+    background:var(--ink); color:var(--bg); padding:12px 18px; border-radius:999px; font-weight:700; font-size:.86rem;
+    box-shadow:var(--shadow-3); display:flex; align-items:center; gap:8px; animation:toastIn .25s ease;
+  }
+  @keyframes toastIn{ from{ opacity:0; transform:translateY(-10px);} to{opacity:1; transform:translateY(0);} }
+
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(20,16,36,.5); backdrop-filter:blur(2px); z-index:100;
+    display:flex; align-items:flex-end; justify-content:center; padding:0;
+  }
+  @media (min-width:640px){ .modal-backdrop{ align-items:center; padding:20px; } }
+  .modal{
+    background:var(--surface); width:100%; max-width:560px; max-height:92vh; overflow-y:auto;
+    border-radius:22px 22px 0 0; box-shadow:var(--shadow-3); padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+    animation:modalUp .22s ease;
+  }
+  @media (min-width:640px){ .modal{ border-radius:var(--radius-xl); } }
+  @keyframes modalUp{ from{ transform:translateY(24px); opacity:.6; } to{ transform:translateY(0); opacity:1; } }
+  .modal-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .modal-head h3{ font-size:1.2rem; }
+
+  .selector-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-xl);
+    padding:26px 20px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center;
+    box-shadow:var(--shadow-1);
+  }
+  .selector-card:hover{ box-shadow:var(--shadow-2); transform:translateY(-2px); }
+  .selector-card{ transition:box-shadow .18s ease, transform .18s ease; }
+
+  .progress-track{ height:12px; border-radius:999px; background:var(--surface-3); overflow:hidden; }
+  .progress-fill{ height:100%; border-radius:999px; background:linear-gradient(90deg,var(--star),var(--warm)); transition:width .4s ease; }
+
+  table{ width:100%; border-collapse:collapse; font-size:.88rem; }
+  th{ text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); padding:8px 10px; border-bottom:1px solid var(--border); }
+  td{ padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .table-wrap{ overflow-x:auto; }
+
+  .lock-screen{ position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:70vh; gap:18px; text-align:center; padding:20px; }
+  .lock-screen > *{ position:relative; z-index:1; }
+  .pin-dots{ display:flex; gap:12px; }
+  .pin-dot{ width:16px; height:16px; border-radius:50%; border:2px solid var(--border); }
+  .pin-dot.filled{ background:var(--primary); border-color:var(--primary); }
+  .keypad{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:min(280px,80vw); }
+  .keypad button{ aspect-ratio:1; border-radius:50%; border:1px solid var(--border); background:var(--surface); font-size:1.3rem; font-weight:700; font-family:var(--font-display); }
+  .keypad button:active{ background:var(--surface-2); }
+
+  .wheel-wrap{ display:flex; flex-direction:column; align-items:center; gap:22px; }
+  .wheel-holder{ position:relative; width:min(320px,80vw); aspect-ratio:1; }
+  .wheel-pointer{ position:absolute; top:-6px; left:50%; transform:translateX(-50%); font-size:30px; z-index:5; filter:drop-shadow(0 3px 3px rgba(0,0,0,.25)); }
+  .wheel-svg{ width:100%; height:100%; transition:transform 2.6s cubic-bezier(.12,.66,.15,1); border-radius:50%; box-shadow:var(--shadow-3); }
+  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:22%; height:22%; border-radius:50%; background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:var(--shadow-2); border:3px solid var(--surface); }
+
+  .confetti-layer{ position:fixed; inset:0; pointer-events:none; z-index:150; overflow:hidden; }
+  .confetti-piece{ position:absolute; top:-10px; border-radius:2px; animation:confettiFall linear forwards; }
+  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(540deg); opacity:.2; } }
+
+  .swatch{ width:34px; height:34px; border-radius:50%; border:2px solid transparent; }
+  .swatch.on{ border-color:var(--ink); box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--ink); }
+  .emoji-pick{ font-size:22px; width:44px; height:44px; border-radius:12px; border:1.5px solid var(--border); background:var(--surface); }
+  .emoji-pick.on{ border-color:var(--primary); background:var(--primary-soft); }
+
+  .encourage{
+    background:linear-gradient(135deg,var(--primary-soft),var(--surface)); border:1px solid var(--border);
+    border-radius:var(--radius-l); padding:16px 18px; display:flex; gap:12px; align-items:center;
+  }
+  .kicker-btn{ background:none; border:none; color:var(--primary); font-weight:700; font-size:.86rem; padding:4px 0; }
+  .link-btn{ background:none; border:none; color:var(--ink-faint); font-weight:600; font-size:.8rem; text-decoration:underline; padding:2px; }
+
+  .loading-screen{ display:flex; align-items:center; justify-content:center; min-height:100vh; flex-direction:column; gap:14px; color:var(--ink-soft); }
+  .spinner{ width:34px; height:34px; border-radius:50%; border:3px solid var(--surface-3); border-top-color:var(--primary); animation:spin .8s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+</style>
+
+</head>
+<body>
+<div id="app"><div class="loading-screen"><div class="spinner"></div><p>Sto preparando Missione Famiglia…</p></div></div>
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+const TZ = 'Europe/Rome';
+function todayStr(){
+  return new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+}
+function nowIso(){ return new Date().toISOString(); }
+function toRomeDate(iso){
+  if(!iso) return '';
+  return new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(iso));
+}
+function weekdayIdx(dateStr){ // 0=Dom..6=Sab (getDay) using noon anchor to dodge DST edges
+  return new Date(dateStr+'T12:00:00').getDay();
+}
+const DAY_LABELS = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+const DAY_LABELS_FULL = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+function isoWeekKey(dateStr){
+  const d = new Date(dateStr+'T12:00:00');
+  const dt = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const dayNum = (dt.getUTCDay()+6)%7;
+  dt.setUTCDate(dt.getUTCDate()-dayNum+3);
+  const firstThursday = new Date(Date.UTC(dt.getUTCFullYear(),0,4));
+  const week = 1 + Math.round(((dt-firstThursday)/86400000 - 3 + ((firstThursday.getUTCDay()+6)%7))/7);
+  return dt.getUTCFullYear()+'-W'+String(week).padStart(2,'0');
+}
+function addDays(dateStr,n){
+  const d = new Date(dateStr+'T12:00:00'); d.setDate(d.getDate()+n);
+  return new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
+}
+function isoWeekStart(dateStr){
+  // Monday of the week containing dateStr (Rome calendar week)
+  const idx = weekdayIdx(dateStr); // 0=Dom..6=Sab
+  const offset = idx===0 ? -6 : 1-idx;
+  return addDays(dateStr, offset);
+}
+function fmtDateIt(dateStr){
+  if(!dateStr) return '';
+  const d = new Date(dateStr+'T12:00:00');
+  return d.toLocaleDateString('it-IT',{day:'numeric',month:'long'});
+}
+function fmtDateTimeIt(iso){
+  if(!iso) return '';
+  return new Date(iso).toLocaleDateString('it-IT',{day:'numeric',month:'short',year:'numeric'}) + ' · ' +
+         new Date(iso).toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+}
+function uid(){ return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4); }
+function escapeHtml(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function clamp(n,a,b){ return Math.max(a,Math.min(b,n)); }
+function hashStr(s){ let h=0; for(let i=0;i<s.length;i++){ h=(h<<5)-h+s.charCodeAt(i); h|=0; } return Math.abs(h); }
+async function sha256Hex(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function starWord(n){ return Math.abs(n)===1 ? 'stella' : 'stelle'; }
+function starIcon(){
+  return '<svg class="star-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7c.42 0 .8.25.96.64l2.22 5.31 5.73.5c.9.08 1.27 1.2.58 1.78l-4.36 3.7 1.32 5.6c.21.88-.75 1.58-1.53 1.11L12 18.2l-4.92 3.14c-.78.47-1.74-.23-1.53-1.11l1.32-5.6-4.36-3.7c-.69-.58-.32-1.7.58-1.78l5.73-.5 2.22-5.31c.16-.39.54-.64.96-.64z"/></svg>';
+}
+// Decorazione leggera per le schermate "hero" (selettore, blocco genitori): stelline sparse, puramente ornamentali.
+const HERO_STAR_SPOTS = [
+  {top:'4%', left:'8%', size:16, rot:-12, op:.35},
+  {top:'12%', left:'88%', size:22, rot:18, op:.3},
+  {top:'2%', left:'48%', size:12, rot:6, op:.4},
+  {top:'32%', left:'2%', size:14, rot:-20, op:.25},
+  {top:'26%', left:'95%', size:16, rot:-8, op:.28},
+];
+function heroDeco(){
+  return `<div class="hero-deco" aria-hidden="true">${HERO_STAR_SPOTS.map(s=>
+    `<span class="hero-star" style="top:${s.top}; left:${s.left}; width:${s.size}px; height:${s.size}px; opacity:${s.op}; transform:rotate(${s.rot}deg)">${starIcon()}</span>`
+  ).join('')}</div>`;
+}
+
+const AVATAR_EMOJI = ['🦄','🐱','🐼','🦊','🐰','🐸','🦋','🐬','🌸','⭐','🌙','🐨','🦁','🐧','🌈','🍓','🐙','🦉'];
+const AVATAR_COLORS = ['#FF7A59','#FFC845','#43C6AC','#4FA8E0','#8C7CF0','#F06AA0','#5CD17E','#B084F0'];
+const ENCOURAGEMENTS = [
+  'Ogni piccolo passo conta. Oggi è un buon giorno per iniziare! 🌟',
+  'Non serve fare tutto: basta fare qualcosa con impegno. 💪',
+  'Sei sulla strada giusta, un passo alla volta. 🚀',
+  'Le tue missioni ti aspettano, quando vuoi tu! ✨',
+  'Piccole azioni, grandi risultati. Forza! 🌈',
+  'Oggi puoi scegliere anche solo una missione: va benissimo così. 🌼',
+  'Ricorda: si va avanti con calma, non con fretta. 🐢💫',
+  'Ogni stella che guadagni racconta un impegno vero. 🌟'
+];
+
+/* ============================================================
+   DB LAYER — Supabase-backed shim (doc()/col() mimic the same
+   get/set/update/delete/onSnapshot/acquire, doc/add API used
+   throughout this file, so all business logic below is unchanged).
+   ============================================================ */
+const SUPABASE_URL = "https://mkiktayebvljhqyrtyvm.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_UpJ4aVFCP_HxnZYVSrxugQ_hiFIaOo8";
+
+const TABLE_MAP = {
+  meta: "mf_meta",
+  team: "mf_team_goal",
+  children: "mf_children",
+  missions: "mf_missions",
+  missionInstances: "mf_mission_instances",
+  rewards: "mf_rewards",
+  rewardRequests: "mf_reward_requests",
+  ledgerEntries: "mf_ledger_entries",
+  wheelChallenges: "mf_wheel_challenges",
+  wheelSpins: "mf_wheel_spins",
+  teamInstances: "mf_team_instances",
+  teamContributions: "mf_team_contributions",
+};
+
+let sbClient = null;
+let sbChannelSeq = 0;
+
+function sbRowToDocSnap(id, row){
+  return {
+    exists: !!row,
+    id: id,
+    data: ()=> row ? row.data : undefined,
+  };
+}
+
+function docRef(path){
+  const parts = path.split('/');
+  const table = TABLE_MAP[parts[0]];
+  const id = parts[1];
+  return {
+    async get(){
+      const { data, error } = await sbClient.from(table).select('*').eq('id', id).maybeSingle();
+      if(error) throw error;
+      return sbRowToDocSnap(id, data);
+    },
+    async set(value){
+      const { error } = await sbClient.from(table).upsert({ id, data: value, updated_at: new Date().toISOString() });
+      if(error) throw error;
+    },
+    async update(value){
+      const { data: cur, error: e1 } = await sbClient.from(table).select('data').eq('id', id).maybeSingle();
+      if(e1) throw e1;
+      const merged = Object.assign({}, cur ? cur.data : {}, value);
+      const { error } = await sbClient.from(table).upsert({ id, data: merged, updated_at: new Date().toISOString() });
+      if(error) throw error;
+    },
+    async delete(){
+      const { error } = await sbClient.from(table).delete().eq('id', id);
+      if(error) throw error;
+    },
+    onSnapshot(cb, errCb){
+      (async ()=>{
+        try{
+          const { data, error } = await sbClient.from(table).select('*').eq('id', id).maybeSingle();
+          if(error){ errCb && errCb(error); return; }
+          cb(sbRowToDocSnap(id, data));
+        }catch(e){ errCb && errCb(e); }
+      })();
+      const refresh = async ()=>{
+        try{
+          const { data, error } = await sbClient.from(table).select('*').eq('id', id).maybeSingle();
+          if(error){ errCb && errCb(error); return; }
+          cb(sbRowToDocSnap(id, data));
+        }catch(e){ errCb && errCb(e); }
+      };
+      const channel = sbClient.channel('doc-'+table+'-'+id+'-'+(sbChannelSeq++))
+        .on('postgres_changes', { event:'*', schema:'public', table, filter:'id=eq.'+id }, refresh)
+        .subscribe();
+      return ()=> sbClient.removeChannel(channel);
+    },
+    // Lightweight lease: an atomic first-insert wins; a stale lease (older
+    // than ttlMs) can be stolen via compare-and-swap on updated_at. Used
+    // once, at first boot, to make default-data seeding idempotent even if
+    // two devices open the empty app at the same moment.
+    async acquire({ holder, ttlMs }){
+      const nowIso2 = new Date().toISOString();
+      const { error: insErr } = await sbClient.from(table).insert({ id, data: { __lease: holder, __leaseAt: Date.now() }, updated_at: nowIso2 });
+      if(!insErr) return { acquired: true };
+      const { data: cur } = await sbClient.from(table).select('data, updated_at').eq('id', id).maybeSingle();
+      if(!cur) return { acquired: false };
+      const isLease = cur.data && cur.data.__lease;
+      if(!isLease) return { acquired: false };
+      const age = Date.now() - new Date(cur.updated_at).getTime();
+      if(age < ttlMs) return { acquired: false };
+      const { data: stolen, error: casErr } = await sbClient.from(table)
+        .update({ data: { __lease: holder, __leaseAt: Date.now() }, updated_at: nowIso2 })
+        .eq('id', id).eq('updated_at', cur.updated_at).select('id');
+      if(casErr || !stolen || stolen.length===0) return { acquired: false };
+      return { acquired: true };
+    },
+  };
+}
+
+function colRef(path){
+  const table = TABLE_MAP[path];
+  return {
+    async add(value){
+      const id = uid();
+      const { error } = await sbClient.from(table).insert({ id, data: value, updated_at: new Date().toISOString() });
+      if(error) throw error;
+      return { id };
+    },
+    onSnapshot(cb, errCb){
+      const fetchAll = async ()=>{
+        try{
+          const { data, error } = await sbClient.from(table).select('*').order('updated_at', { ascending:true });
+          if(error){ errCb && errCb(error); return; }
+          cb({ docs: data.map(r=>({ id:r.id, data:()=> r.data })) });
+        }catch(e){ errCb && errCb(e); }
+      };
+      fetchAll();
+      const channel = sbClient.channel('col-'+table+'-'+(sbChannelSeq++))
+        .on('postgres_changes', { event:'*', schema:'public', table }, fetchAll)
+        .subscribe();
+      return ()=> sbClient.removeChannel(channel);
+    },
+  };
+}
+
+let db = null;
+let dbReady = false;
+
+async function initDb(){
+  try{
+    sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      realtime: { params: { eventsPerSecond: 10 } },
+    });
+    db = { collection: (p)=> colRef(p), doc: (p)=> docRef(p) };
+    dbReady = true;
+  }catch(e){ db = null; dbReady = false; }
+  return dbReady;
+}
+
+const col = (p)=> db.collection(p);
+const doc = (p)=> db.doc(p);
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const S = {
+  ready:false,
+  offline:false,
+  meta:null,
+  children:[],
+  missions:[],
+  missionInstances:[],
+  rewards:[],
+  rewardRequests:[],
+  ledgerEntries:[],
+  wheelChallenges:[],
+  wheelSpins:[],
+  teamGoal:null,
+  teamInstances:[],
+  teamContributions:[],
+};
+
+let renderQueued = false;
+function notify(){
+  if(renderQueued) return;
+  renderQueued = true;
+  requestAnimationFrame(()=>{ renderQueued = false; render(); });
+}
+
+function sub(ref, key, multi){
+  ref.onSnapshot(
+    (snap)=>{
+      if(multi){ S[key] = snap.docs.map(d=>({id:d.id, ...d.data()})); }
+      else { S[key] = snap.exists ? {id:snap.id, ...snap.data()} : null; }
+      notify();
+    },
+    (err)=>{ console.warn('db error on', key, err); }
+  );
+}
+
+function startSubscriptions(){
+  sub(doc('meta/app'), 'meta', false);
+  sub(col('children'), 'children', true);
+  sub(col('missions'), 'missions', true);
+  sub(col('missionInstances'), 'missionInstances', true);
+  sub(col('rewards'), 'rewards', true);
+  sub(col('rewardRequests'), 'rewardRequests', true);
+  sub(col('ledgerEntries'), 'ledgerEntries', true);
+  sub(col('wheelChallenges'), 'wheelChallenges', true);
+  sub(col('wheelSpins'), 'wheelSpins', true);
+  sub(doc('team/goal'), 'teamGoal', false);
+  sub(col('teamInstances'), 'teamInstances', true);
+  sub(col('teamContributions'), 'teamContributions', true);
+}
+
+/* ============================================================
+   SEEDING (idempotent, lease-guarded)
+   ============================================================ */
+const DEFAULT_MISSIONS = [
+  {title:'Rifare il letto', criteria:'Il letto è rifatto: lenzuola tirate e cuscino sistemato.', points:5, frequency:'daily', daysOfWeek:[]},
+  {title:'Preparare lo zaino', criteria:'Zaino pronto con tutto il necessario per domani.', points:5, frequency:'daily', daysOfWeek:[]},
+  {title:'Riordinare giochi o scrivania', criteria:'Giochi al loro posto, scrivania sgombra.', points:10, frequency:'daily', daysOfWeek:[]},
+  {title:'Apparecchiare o sparecchiare', criteria:'Tavola pronta o sparecchiata e pulita.', points:10, frequency:'daily', daysOfWeek:[]},
+  {title:'Leggere per 15 minuti', criteria:'15 minuti di lettura tranquilla, anche a puntate.', points:10, frequency:'daily', daysOfWeek:[]},
+  {title:'Completare il momento dei compiti', criteria:'Il momento dedicato ai compiti è stato portato a termine.', points:15, frequency:'daily', daysOfWeek:[]},
+  {title:'Missione di collaborazione', criteria:'Aiutarsi a vicenda in un piccolo compito di casa, insieme.', points:10, frequency:'daily', daysOfWeek:[]},
+];
+const DEFAULT_REWARDS = [
+  {title:'Scegliere il film della serata', cost:30, availability:'', maxFrequency:'unlimited', conditions:''},
+  {title:'Scegliere un dolce da preparare insieme', cost:40, availability:'', maxFrequency:'unlimited', conditions:''},
+  {title:'30 minuti extra di tablet o telefono', cost:50, availability:'', maxFrequency:'unlimited', conditions:''},
+  {title:'Attività speciale con un genitore', cost:70, availability:'', maxFrequency:'unlimited', conditions:''},
+  {title:'Uscita speciale con le amiche', cost:120, availability:'', maxFrequency:'unlimited', conditions:'Da concordare con i genitori'},
+  {title:'Scegliere una gita in famiglia', cost:200, availability:'', maxFrequency:'unlimited', conditions:'Da concordare in base al calendario familiare'},
+];
+const DEFAULT_WHEEL = [
+  {text:'Riordinare 5 oggetti muovendosi come un robot', isJoker:false},
+  {text:'Mimare un animale a scelta', isJoker:false},
+  {text:'Inventare un breve ritornello', isJoker:false},
+  {text:'Risolvere una piccola addizione o sottrazione', isJoker:false},
+  {text:'Un piccolo aiuto domestico, a scelta tra due proposte', isJoker:false},
+  {text:'Jolly: prova annullata!', isJoker:true},
+];
+
+async function ensureSeed(){
+  const ref = doc('meta/app');
+  let snap = await ref.get();
+  if(snap.exists){ return; }
+  const lease = await ref.acquire({holder:'seed-'+uid(), ttlMs:20000});
+  if(!lease.acquired){
+    // someone else is seeding; wait briefly then continue (subscriptions will pick it up)
+    await new Promise(r=>setTimeout(r,1200));
+    return;
+  }
+  snap = await ref.get();
+  if(snap.exists){ return; }
+  const order = (arr)=>arr.map((x,i)=>({...x, order:i}));
+  const childDefs = [
+    {id:'camilla', name:'Camilla', avatar:'🦄', color:AVATAR_COLORS[0], ageYears:null, note:'', order:0, active:true, weeklyGoal:120},
+    {id:'naomi', name:'Naomi', avatar:'🐼', color:AVATAR_COLORS[3], ageYears:null, note:'', order:1, active:true, weeklyGoal:120},
+  ];
+  for(const c of childDefs){ await doc('children/'+c.id).set({...c, createdAt:nowIso()}); }
+  for(const m of order(DEFAULT_MISSIONS)){
+    const id = uid();
+    await doc('missions/'+id).set({
+      id, title:m.title, description:'', criteria:m.criteria, points:m.points,
+      frequency:m.frequency, daysOfWeek:m.daysOfWeek, assignedTo:['camilla','naomi'],
+      active:true, suspension:{active:false, until:'', reason:''}, order:m.order, createdAt:nowIso()
+    });
+  }
+  for(const r of order(DEFAULT_REWARDS)){
+    const id = uid();
+    await doc('rewards/'+id).set({
+      id, title:r.title, cost:r.cost, availability:r.availability, maxFrequency:r.maxFrequency,
+      conditions:r.conditions, active:true, order:r.order, createdAt:nowIso()
+    });
+  }
+  for(const w of order(DEFAULT_WHEEL)){
+    const id = uid();
+    await doc('wheelChallenges/'+id).set({ id, text:w.text, isJoker:!!w.isJoker, active:true, order:w.order, createdAt:nowIso() });
+  }
+  await doc('team/goal').set({
+    title:'Serata cinema in famiglia',
+    description:'Quando raggiungiamo insieme il traguardo, scegliamo un film e prepariamo i popcorn tutti insieme.',
+    targetPoints:100, pointsPerCompletion:10,
+    assignedTo:['camilla','naomi'], frequency:'daily', daysOfWeek:[],
+    missionTitle:'Missione di squadra: riordino insieme',
+    missionCriteria:'Un piccolo compito di casa portato a termine tutte insieme.',
+    active:true, createdAt:nowIso()
+  });
+  await ref.set({
+    familyName:'Famiglia', parentPinHash:null, parentPinSalt:null, setupDone:false, createdAt:nowIso()
+  });
+}
+
+/* ============================================================
+   DERIVED HELPERS
+   ============================================================ */
+function childById(id){ return S.children.find(c=>c.id===id); }
+function missionById(id){ return S.missions.find(m=>m.id===id); }
+function rewardById(id){ return S.rewards.find(r=>r.id===id); }
+function instanceById(id){ return S.missionInstances.find(i=>i.id===id); }
+
+function isMissionSuspended(m, dateStr){
+  const s = m.suspension;
+  if(!s || !s.active) return false;
+  if(s.until && dateStr > s.until) return false;
+  return true;
+}
+
+function missionOccursToday(m, dateStr){
+  if(!m.active) return false;
+  if(isMissionSuspended(m, dateStr)) return false;
+  if(m.frequency==='daily'){
+    if(!m.daysOfWeek || m.daysOfWeek.length===0) return true;
+    return m.daysOfWeek.includes(weekdayIdx(dateStr));
+  }
+  return false; // weekly & occasional handled separately
+}
+
+function instId(missionId, childId, dateStr){ return missionId+'__'+childId+'__'+dateStr; }
+function instIdWeek(missionId, childId, weekKey){ return missionId+'__'+childId+'__'+weekKey; }
+
+// Returns the list of "today" mission cards (virtual or real) for a child
+function todaysMissionsFor(childId){
+  const today = todayStr();
+  const week = isoWeekKey(today);
+  const out = [];
+  for(const m of S.missions){
+    if(!m.active) continue;
+    if(!(m.assignedTo||[]).includes(childId)) continue;
+    if(m.frequency==='daily' && missionOccursToday(m, today)){
+      const id = instId(m.id, childId, today);
+      const inst = instanceById(id);
+      if(!inst || inst.status!=='approved'){
+        out.push({ key:id, mission:m, instance:inst||null, period:'oggi', dateStr:today });
+      }
+    } else if(m.frequency==='weekly' && !isMissionSuspended(m,today)){
+      const id = instIdWeek(m.id, childId, week);
+      const inst = instanceById(id);
+      if(!inst || inst.status!=='approved'){
+        out.push({ key:id, mission:m, instance:inst||null, period:'questa settimana', dateStr:today });
+      }
+    }
+  }
+  // occasional: any outstanding instance not approved, regardless of date
+  for(const inst of S.missionInstances){
+    if(inst.childId!==childId) continue;
+    const m = missionById(inst.missionId);
+    if(!m || m.frequency!=='occasional' || !m.active) continue;
+    if(inst.status==='approved') continue;
+    out.push({ key:inst.id, mission:m, instance:inst, period:'assegnata', dateStr:inst.date });
+  }
+  out.sort((a,b)=> (a.mission.order??0)-(b.mission.order??0));
+  return out;
+}
+
+function recentlyApprovedFor(childId){
+  const today = todayStr();
+  return S.missionInstances.filter(i=> i.childId===childId && i.status==='approved' && toRomeDate(i.approvedAt)===today)
+    .map(i=>({instance:i, mission:missionById(i.missionId)})).filter(x=>x.mission);
+}
+
+function starBalance(childId){
+  let bal = 0;
+  for(const l of S.ledgerEntries){ if(l.childId===childId) bal += l.amount; }
+  return bal;
+}
+// Stars EARNED (missioni approvate) nella settimana corrente — obiettivo personale, mai confrontato tra sorelle.
+function weeklyStarsEarned(childId, dateStr){
+  const today = dateStr || todayStr();
+  const start = isoWeekStart(today);
+  let sum = 0;
+  for(const l of S.ledgerEntries){
+    if(l.childId!==childId || l.type!=='earned') continue;
+    const d = toRomeDate(l.createdAt);
+    if(d>=start && d<=today) sum += l.amount;
+  }
+  return sum;
+}
+function reservedStars(childId, excludeRequestId){
+  let r=0;
+  for(const req of S.rewardRequests){
+    if(req.childId===childId && req.status==='requested' && req.id!==excludeRequestId) r += req.cost;
+  }
+  return r;
+}
+function availableStars(childId, excludeRequestId){
+  return starBalance(childId) - reservedStars(childId, excludeRequestId);
+}
+
+function activeSpinFor(childId){
+  return S.wheelSpins.find(s=>s.childId===childId && !['completed','cancelled'].includes(s.status))
+    || S.wheelSpins.slice().reverse().find(s=>s.childId===childId && s.status==='completed' && sameDay(s.completedMarkedAt||s.confirmedAt));
+}
+function sameDay(iso){ if(!iso) return false; return toRomeDate(iso)===todayStr(); }
+
+function teamProgress(){
+  let sum = 0;
+  for(const c of S.teamContributions){ sum += (c.points||0); }
+  return sum;
+}
+
+/* ============================================================
+   TOASTS & CONFETTI
+   ============================================================ */
+function toast(msg, icon){
+  const stack = document.getElementById('toastStack');
+  const el = document.createElement('div');
+  el.className='toast';
+  el.innerHTML = `<span>${icon||'✅'}</span><span>${escapeHtml(msg)}</span>`;
+  stack.appendChild(el);
+  setTimeout(()=>{ el.style.transition='opacity .3s ease'; el.style.opacity='0'; setTimeout(()=>el.remove(),320); }, 2600);
+}
+function celebrate(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const layer = document.createElement('div');
+  layer.className='confetti-layer';
+  document.body.appendChild(layer);
+  const colors = ['#FFB020','#6C5CE7','#FF7A59','#43C6AC','#F06AA0'];
+  for(let i=0;i<26;i++){
+    const p = document.createElement('div');
+    p.className='confetti-piece';
+    const size = 6+Math.random()*6;
+    p.style.width=size+'px'; p.style.height=(size*1.4)+'px';
+    p.style.left = (Math.random()*100)+'vw';
+    p.style.background = colors[i%colors.length];
+    p.style.animationDuration = (1.6+Math.random()*1.1)+'s';
+    p.style.animationDelay = (Math.random()*0.25)+'s';
+    layer.appendChild(p);
+  }
+  setTimeout(()=>layer.remove(), 3200);
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function getRoute(){
+  const h = location.hash.replace(/^#\/?/, '');
+  const parts = h.split('/').filter(Boolean);
+  return parts;
+}
+window.addEventListener('hashchange', notify);
+
+/* ============================================================
+   PARENT AUTH (session-only unlock)
+   ============================================================ */
+let parentUnlocked = false;
+let pinDraft = '';
+let pinMode = 'create'; // 'create' | 'confirm' (used only during first-time PIN setup)
+let pinFirstEntry = '';
+let pinError = '';
+
+async function setParentPin(pin){
+  const salt = uid()+uid();
+  const hash = await sha256Hex(salt+':'+pin);
+  await doc('meta/app').update({parentPinHash:hash, parentPinSalt:salt, setupDone:true});
+}
+async function checkParentPin(pin){
+  if(!S.meta || !S.meta.parentPinHash) return false;
+  const hash = await sha256Hex(S.meta.parentPinSalt+':'+pin);
+  return hash === S.meta.parentPinHash;
+}
+
+/* ============================================================
+   MODAL SYSTEM (isolated from main re-render)
+   ============================================================ */
+function openModal(html, onMount){
+  closeModal();
+  const back = document.createElement('div');
+  back.className='modal-backdrop';
+  back.id='modalBackdrop';
+  back.innerHTML = `<div class="modal" role="dialog" aria-modal="true">${html}</div>`;
+  back.addEventListener('mousedown', (e)=>{ if(e.target===back) closeModal(); });
+  document.body.appendChild(back);
+  if(onMount) onMount(back);
+}
+function closeModal(){
+  const el = document.getElementById('modalBackdrop');
+  if(el) el.remove();
+}
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+async function markMissionDone(mission, childId, dateStr, weekKey){
+  const id = mission.frequency==='weekly' ? instIdWeek(mission.id, childId, weekKey) : instId(mission.id, childId, dateStr);
+  const existing = instanceById(id);
+  if(existing && (existing.status==='pending' || existing.status==='approved')) return;
+  await doc('missionInstances/'+id).set({
+    id, missionId:mission.id, childId, date:dateStr, weekKey: mission.frequency==='weekly'?weekKey:null,
+    status:'pending', points:mission.points, note:'',
+    requestedAt: nowIso(), approvedAt:null, approvedBy:null
+  });
+  toast('Missione segnalata! In attesa di conferma.', '🙌');
+}
+
+async function approveInstance(inst){
+  if(!inst || inst.status==='approved') return;
+  const mission = missionById(inst.missionId);
+  await doc('missionInstances/'+inst.id).set({...inst, status:'approved', approvedAt:nowIso(), approvedBy:'genitore', note:''});
+  await doc('ledgerEntries/earn_'+inst.id).set({
+    id:'earn_'+inst.id, childId:inst.childId, type:'earned', amount:inst.points,
+    reason:'Missione: '+(mission?mission.title:'—'), missionInstanceId:inst.id,
+    createdAt: nowIso(), createdBy:'genitore'
+  });
+}
+
+async function postponeInstance(inst, note){
+  if(!inst) return;
+  await doc('missionInstances/'+inst.id).set({...inst, status:'postponed', note: note||'', approvedAt:null, approvedBy:null});
+}
+
+async function reopenInstance(inst){
+  if(!inst) return;
+  await doc('missionInstances/'+inst.id).set({...inst, status:'todo', note:''});
+}
+
+const _inFlightRequests = new Set();
+async function requestReward(reward, childId){
+  const lockKey = childId+'__'+reward.id;
+  if(_inFlightRequests.has(lockKey)) return; // guard against double-tap creating duplicate requests
+  _inFlightRequests.add(lockKey);
+  try{
+    const avail = availableStars(childId);
+    if(reward.cost > avail){ toast('Stelle non sufficienti per questo premio.', '⚠️'); return; }
+    await col('rewardRequests').add({
+      rewardId:reward.id, rewardTitle:reward.title, cost:reward.cost, childId,
+      status:'requested', requestedAt:nowIso(), decidedAt:null, decidedBy:null, note:'', scheduledFor:null, usedAt:null
+    });
+    toast('Richiesta inviata ai genitori!', '🎁');
+  } finally {
+    setTimeout(()=>_inFlightRequests.delete(lockKey), 1500);
+  }
+}
+async function cancelRequest(req){
+  if(req.status!=='requested') return;
+  await doc('rewardRequests/'+req.id).update({status:'cancelled', decidedAt:nowIso(), decidedBy:req.childId});
+}
+async function decideRequest(req, approve, note){
+  if(req.status!=='requested') return;
+  if(approve){
+    await doc('rewardRequests/'+req.id).update({status:'approved', decidedAt:nowIso(), decidedBy:'genitore', note:note||''});
+    await doc('ledgerEntries/spend_'+req.id).set({
+      id:'spend_'+req.id, childId:req.childId, type:'spent', amount:-req.cost,
+      reason:'Premio: '+req.rewardTitle, rewardRequestId:req.id, createdAt:nowIso(), createdBy:'genitore'
+    });
+  } else {
+    await doc('rewardRequests/'+req.id).update({status:'rejected', decidedAt:nowIso(), decidedBy:'genitore', note:note||''});
+  }
+}
+async function cancelApprovedRequest(req, reason){
+  if(req.status!=='approved') return;
+  await doc('rewardRequests/'+req.id).update({status:'cancelled', decidedAt:nowIso(), decidedBy:'genitore', note:reason||''});
+  await doc('ledgerEntries/refund_'+req.id).set({
+    id:'refund_'+req.id, childId:req.childId, type:'refund', amount:req.cost,
+    reason:'Rimborso: '+req.rewardTitle, rewardRequestId:req.id, createdAt:nowIso(), createdBy:'genitore'
+  });
+}
+async function markRequestUsed(req, scheduledFor){
+  await doc('rewardRequests/'+req.id).update({status:'used', usedAt:nowIso(), scheduledFor:scheduledFor||req.scheduledFor||null});
+}
+async function setScheduledFor(req, date){
+  await doc('rewardRequests/'+req.id).update({scheduledFor:date||null});
+}
+
+async function addCorrection(childId, amount, reason){
+  await col('ledgerEntries').add({
+    childId, type:'correction', amount, reason, createdAt:nowIso(), createdBy:'genitore'
+  });
+}
+
+async function toggleFavorite(childId, rewardId){
+  const c = childById(childId);
+  const next = c.favoriteRewardId===rewardId ? null : rewardId;
+  await doc('children/'+childId).update({favoriteRewardId: next});
+}
+
+/* Missions CRUD */
+async function saveMission(data, id){
+  const mid = id || uid();
+  const base = {
+    id:mid, title:data.title, description:data.description||'', criteria:data.criteria,
+    points:data.points, frequency:data.frequency, daysOfWeek:data.daysOfWeek||[],
+    assignedTo:data.assignedTo, active: data.active!==false,
+    suspension: data.suspension || {active:false, until:'', reason:''},
+    order: data.order ?? S.missions.length, createdAt: data.createdAt || nowIso()
+  };
+  await doc('missions/'+mid).set(base);
+}
+async function deleteMission(id){ await doc('missions/'+id).delete(); }
+async function assignOccasional(mission, childId){
+  const today = todayStr();
+  const id = uid();
+  await doc('missionInstances/'+id).set({
+    id, missionId:mission.id, childId, date:today, weekKey:null,
+    status:'todo', points:mission.points, note:'', requestedAt:null, approvedAt:null, approvedBy:null
+  });
+  toast('Missione assegnata per oggi!', '📌');
+}
+
+/* Rewards CRUD */
+async function saveReward(data, id){
+  const rid = id || uid();
+  await doc('rewards/'+rid).set({
+    id:rid, title:data.title, cost:data.cost, availability:data.availability||'',
+    maxFrequency:data.maxFrequency||'unlimited', conditions:data.conditions||'',
+    active:data.active!==false, order:data.order ?? S.rewards.length, createdAt:data.createdAt||nowIso()
+  });
+}
+async function deleteReward(id){ await doc('rewards/'+id).delete(); }
+
+/* Children CRUD */
+async function saveChild(data, id){
+  const cid = id || (data.name||'bambina').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,24)+'-'+uid().slice(0,4);
+  await doc('children/'+cid).set({
+    id:cid, name:data.name, avatar:data.avatar, color:data.color,
+    ageYears: data.ageYears || null, note: data.note || '', order: data.order ?? S.children.length,
+    active: data.active!==false, favoriteRewardId: data.favoriteRewardId || null,
+    weeklyGoal: data.weeklyGoal || 120,
+    createdAt: data.createdAt || nowIso()
+  });
+}
+
+/* Suspend mission */
+async function setSuspension(mission, active, until, reason){
+  await doc('missions/'+mission.id).update({suspension:{active, until:until||'', reason:reason||''}});
+}
+
+/* Wheel */
+async function saveWheelChallenge(data, id){
+  const wid = id || uid();
+  await doc('wheelChallenges/'+wid).set({
+    id:wid, text:data.text, isJoker:!!data.isJoker, active:data.active!==false,
+    order:data.order ?? S.wheelChallenges.length, createdAt:data.createdAt||nowIso()
+  });
+}
+async function deleteWheelChallenge(id){ await doc('wheelChallenges/'+id).delete(); }
+
+async function createSpin(childId, poolIds){
+  // one active spin per child at a time
+  const active = S.wheelSpins.find(s=>s.childId===childId && !['completed','cancelled'].includes(s.status));
+  if(active) return active.id;
+  const ref = await col('wheelSpins').add({
+    childId, poolChallengeIds:poolIds, status:'ready_to_spin',
+    resultChallengeId:null, resultText:'', createdAt:nowIso(), createdBy:'genitore',
+    spunAt:null, completedMarkedAt:null, confirmedAt:null, note:''
+  });
+  return ref.id;
+}
+async function performSpin(spin){
+  if(spin.status!=='ready_to_spin') return;
+  const pool = spin.poolChallengeIds.map(id=>S.wheelChallenges.find(c=>c.id===id)).filter(Boolean);
+  if(pool.length===0) return;
+  const chosen = pool[Math.floor(Math.random()*pool.length)];
+  const isJoker = !!chosen.isJoker;
+  await doc('wheelSpins/'+spin.id).update({
+    status: isJoker ? 'completed' : 'spun',
+    resultChallengeId: chosen.id, resultText: chosen.text, resultIsJoker: isJoker, spunAt: nowIso(),
+    completedMarkedAt: isJoker ? nowIso() : null, confirmedAt: isJoker ? nowIso() : null
+  });
+  return chosen;
+}
+async function requestAlternative(spin, note){
+  await doc('wheelSpins/'+spin.id).update({status:'alt_requested', note: note||''});
+}
+async function assignAlternative(spin, challengeId){
+  const c = S.wheelChallenges.find(x=>x.id===challengeId);
+  if(!c) return;
+  await doc('wheelSpins/'+spin.id).update({status: c.isJoker?'completed':'spun', resultChallengeId:c.id, resultText:c.text, resultIsJoker: !!c.isJoker, note:'', completedMarkedAt: c.isJoker?nowIso():null, confirmedAt: c.isJoker?nowIso():null});
+}
+async function resetSpin(spin){
+  await doc('wheelSpins/'+spin.id).update({status:'ready_to_spin', resultChallengeId:null, resultText:'', spunAt:null, note:''});
+}
+async function markSpinDone(spin){
+  await doc('wheelSpins/'+spin.id).update({status:'awaiting_confirmation', completedMarkedAt:nowIso()});
+}
+async function confirmSpin(spin){
+  await doc('wheelSpins/'+spin.id).update({status:'completed', confirmedAt:nowIso()});
+}
+async function cancelSpin(spin){
+  await doc('wheelSpins/'+spin.id).update({status:'cancelled'});
+}
+
+/* Team goal */
+function teamMissionOccursToday(){
+  const g = S.teamGoal; if(!g || !g.active) return false;
+  const today = todayStr();
+  if(g.frequency==='daily'){
+    if(!g.daysOfWeek || g.daysOfWeek.length===0) return true;
+    return g.daysOfWeek.includes(weekdayIdx(today));
+  }
+  return true;
+}
+async function markTeamPart(childId){
+  const today = todayStr();
+  const id = 'team__'+today;
+  const existing = S.teamInstances.find(t=>t.id===id);
+  const participants = {...(existing?existing.participants:{}), [childId]:true};
+  await doc('teamInstances/'+id).set({
+    id, date:today, participants, status: existing?existing.status:'pending', createdAt: existing?existing.createdAt:nowIso()
+  });
+  toast('Grazie per il tuo contributo alla squadra!', '🤝');
+}
+async function confirmTeamInstance(inst){
+  if(inst.status==='approved') return;
+  await doc('teamInstances/'+inst.id).set({...inst, status:'approved', approvedAt:nowIso()});
+  const pts = S.teamGoal?.pointsPerCompletion || 10;
+  await doc('teamContributions/contrib_'+inst.id).set({
+    id:'contrib_'+inst.id, points:pts, source:'mission', teamInstanceId:inst.id, createdAt:nowIso(), createdBy:'genitore'
+  });
+}
+async function saveTeamGoal(data){
+  await doc('team/goal').update(data);
+}
+async function addManualContribution(points, note){
+  await col('teamContributions').add({ points, note:note||'', source:'manual', createdAt:nowIso(), createdBy:'genitore' });
+}
+
+/* ============================================================
+   RENDER: SHELL
+   ============================================================ */
+let uiState = { route:[], activeChildTab:{} };
+
+function render(){
+  const app = document.getElementById('app');
+  if(!dbReady){
+    app.innerHTML = `<div class="loading-screen"><div class="spinner"></div><p>Impossibile collegarsi al database di questa pagina.<br>Riprova ricaricando la pagina.</p></div>`;
+    return;
+  }
+  if(!S.meta){
+    app.innerHTML = `<div class="loading-screen"><div class="spinner"></div><p>Sto preparando Missione Famiglia…</p></div>`;
+    return;
+  }
+  const route = getRoute();
+  let body = '';
+  let showTop = true, topTitle = 'Missione Famiglia', topBack = null;
+
+  if(route.length===0){
+    body = renderSelector();
+    topTitle = 'Missione Famiglia';
+  } else if(route[0]==='child' && route[1]){
+    const child = childById(route[1]);
+    if(!child){ location.hash=''; return; }
+    const tab = route[2] || 'home';
+    topTitle = child.name;
+    topBack = '#/';
+    body = renderChildScreen(child, tab);
+  } else if(route[0]==='parent'){
+    topTitle = 'Area Genitori';
+    topBack = '#/';
+    if(!parentUnlocked){
+      body = renderParentLock();
+    } else {
+      const tab = route[1] || 'inbox';
+      body = renderParentScreen(tab);
+    }
+  } else {
+    body = renderSelector();
+  }
+
+  app.innerHTML = `
+    <div class="topbar">
+      ${topBack ? `<button class="icon-btn" id="backBtn" aria-label="Indietro">←</button>` : `<div class="brand-badge">${starIcon()}</div>`}
+      <div class="brand">${escapeHtml(topTitle)}</div>
+      <div class="topbar-spacer"></div>
+      ${route[0]!=='parent' ? `<a class="pill-btn" href="#/parent">🔒 Genitori</a>` : ''}
+    </div>
+    <main id="mainArea">${body}</main>
+    ${route[0]==='child' && route[1] ? renderBottomNav(route[1], route[2]||'home') : ''}
+  `;
+  const back = document.getElementById('backBtn');
+  if(back) back.addEventListener('click', ()=>{ history.back(); setTimeout(()=>{ if(getRoute().join('/')===route.join('/')) location.hash=''; }, 60); });
+
+  wireScreenEvents(route);
+}
+
+function renderBottomNav(childId, tab){
+  const items = [
+    {id:'home', ico:'🏠', label:'Missioni'},
+    {id:'shop', ico:'🎁', label:'Negozio'},
+    {id:'wheel', ico:'🎡', label:'Ruota'},
+  ];
+  return `<nav class="bottom-nav">
+    ${items.map(it=>`<button data-nav="${it.id}" class="${tab===it.id?'active':''}"><span class="ico">${it.ico}</span>${it.label}</button>`).join('')}
+  </nav>`;
+}
+
+/* ============================================================
+   RENDER: SELECTOR
+   ============================================================ */
+function renderSelector(){
+  const kids = S.children.filter(c=>c.active!==false).sort((a,b)=>(a.order??0)-(b.order??0));
+  return `
+    <div class="stack" style="gap:26px; position:relative">
+      ${heroDeco()}
+      <div style="text-align:center; padding-top:14px; position:relative">
+        <div class="eyebrow">Benvenuti su</div>
+        <h1 style="font-size:2.3rem; margin-top:6px">Missione Famiglia</h1>
+        <p style="color:var(--ink-soft); margin-top:8px">Scegli chi sei per iniziare</p>
+      </div>
+      <div class="grid grid-3" style="position:relative">
+        ${kids.map(c=>`
+          <button class="selector-card" data-select-child="${c.id}" style="border-color:${c.color}33">
+            <div class="avatar xl" style="background:${c.color}33">${c.avatar}</div>
+            <h3 style="font-size:1.3rem">${escapeHtml(c.name)}</h3>
+            <span class="star-chip"><span class="s">${starIcon()}</span> ${starBalance(c.id)} ${starWord(starBalance(c.id))}</span>
+          </button>
+        `).join('')}
+        <a class="selector-card" href="#/parent" style="text-decoration:none">
+          <div class="avatar xl" style="background:var(--surface-3)">🔒</div>
+          <h3 style="font-size:1.3rem">Genitori</h3>
+          <span style="color:var(--ink-faint); font-size:.85rem">Area protetta</span>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   RENDER: CHILD SCREENS
+   ============================================================ */
+function renderChildScreen(child, tab){
+  if(tab==='shop') return renderChildShop(child);
+  if(tab==='wheel') return renderChildWheel(child);
+  return renderChildHome(child);
+}
+
+function renderChildHome(child){
+  const today = todayStr();
+  const missions = todaysMissionsFor(child.id);
+  const approvedToday = recentlyApprovedFor(child.id);
+  const bal = starBalance(child.id);
+  const msgIdx = hashStr(child.id+today) % ENCOURAGEMENTS.length;
+  const fav = child.favoriteRewardId ? rewardById(child.favoriteRewardId) : null;
+  const teamOn = teamMissionOccursToday() && (S.teamGoal.assignedTo||[]).includes(child.id);
+  const teamInst = S.teamInstances.find(t=>t.id==='team__'+today);
+  const teamDoneByMe = teamInst && teamInst.participants && teamInst.participants[child.id];
+  const teamPct = clamp(Math.round((teamProgress()/(S.teamGoal?.targetPoints||1))*100),0,100);
+  const weekEarned = weeklyStarsEarned(child.id, today);
+  const goal = child.weeklyGoal || 120;
+  const goalPct = clamp(Math.round((weekEarned/goal)*100),0,100);
+  const goalReached = weekEarned>=goal;
+
+  return `
+    <div class="stack" style="gap:22px">
+      <div class="card" style="display:flex; align-items:center; gap:16px; background:linear-gradient(135deg, ${child.color}22, var(--surface))">
+        <div class="avatar lg" style="background:${child.color}33">${child.avatar}</div>
+        <div style="flex:1">
+          <h2 style="font-size:1.3rem">Ciao, ${escapeHtml(child.name)}!</h2>
+          <div style="margin-top:8px"><span class="star-chip lg">${starIcon()}<span class="num">${bal}</span></span></div>
+        </div>
+      </div>
+
+      <div class="encourage"><span style="font-size:1.6rem">💬</span><p>${ENCOURAGEMENTS[msgIdx]}</p></div>
+
+      <div class="card">
+        <div class="row-between" style="margin-bottom:8px">
+          <span class="eyebrow">Il tuo obiettivo della settimana</span>
+          ${goalReached ? '<span class="badge approved">Raggiunto! 🎉</span>' : ''}
+        </div>
+        <div class="row-between" style="margin-bottom:6px">
+          <strong class="num" style="font-size:1.05rem">${weekEarned} / ${goal} ⭐</strong>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:${goalPct}%"></div></div>
+      </div>
+
+      ${teamOn ? `
+      <div class="card" style="border-color:var(--warm)55">
+        <div class="row-between" style="margin-bottom:10px">
+          <span class="badge team">🤝 Missione di squadra</span>
+          ${teamDoneByMe?'<span class="badge approved">Fatto da te</span>':''}
+        </div>
+        <h3 style="font-size:1.05rem; margin-bottom:4px">${escapeHtml(S.teamGoal.missionTitle||'Missione di squadra')}</h3>
+        <p style="color:var(--ink-soft); font-size:.88rem; margin-bottom:12px">${escapeHtml(S.teamGoal.missionCriteria||'')}</p>
+        <div class="row-between" style="margin-bottom:6px">
+          <span class="eyebrow">Obiettivo: ${escapeHtml(S.teamGoal.title||'')}</span>
+          <span style="font-size:.82rem; color:var(--ink-faint)">${teamProgress()}/${S.teamGoal.targetPoints}</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:${teamPct}%"></div></div>
+        ${teamDoneByMe ? '' : `<button class="btn primary block" style="margin-top:12px" data-team-done="1">Ho fatto la mia parte!</button>`}
+      </div>` : ''}
+
+      <div>
+        <div class="section-title"><h2>Missioni di oggi</h2><span class="eyebrow">${missions.length} da fare</span></div>
+        ${missions.length===0 ? `
+          <div class="empty card"><span class="emoji">🌤️</span>Nessuna missione in attesa. Goditi la giornata!</div>
+        ` : `<div class="stack">${missions.map(x=>renderMissionCard(x, child)).join('')}</div>`}
+      </div>
+
+      ${approvedToday.length>0 ? `
+      <div>
+        <div class="section-title"><h2>Approvate oggi</h2></div>
+        <div class="stack">${approvedToday.map(x=>`
+          <div class="mission-card is-approved">
+            <div class="row-between">
+              <strong>${escapeHtml(x.mission.title)}</strong>
+              <span class="badge approved">✓ +${x.instance.points} ⭐</span>
+            </div>
+          </div>`).join('')}</div>
+      </div>` : ''}
+
+      ${fav ? `
+      <div class="card">
+        <div class="section-title" style="margin-bottom:10px"><h2 style="font-size:1rem">Il tuo premio preferito</h2></div>
+        <div class="row-between" style="margin-bottom:8px">
+          <strong>${escapeHtml(fav.title)}</strong>
+          <span class="star-chip"><span class="s">${starIcon()}</span> ${fav.cost}</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:${clamp(Math.round(bal/fav.cost*100),0,100)}%"></div></div>
+        <p style="margin-top:8px; font-size:.82rem; color:var(--ink-faint)">${Math.min(bal,fav.cost)} di ${fav.cost} stelle</p>
+      </div>` : ''}
+
+      <a href="#/child/${child.id}/shop" class="card" style="text-decoration:none; display:flex; align-items:center; gap:14px">
+        <div class="avatar" style="background:var(--warm-soft)">🎁</div>
+        <div style="flex:1"><strong>Negozio dei bonus</strong><p style="color:var(--ink-faint); font-size:.85rem">Scopri cosa puoi ottenere con le tue stelle</p></div>
+        <span style="color:var(--ink-faint)">→</span>
+      </a>
+    </div>
+  `;
+}
+
+function renderMissionCard(x, child){
+  const inst = x.instance;
+  const status = inst ? inst.status : 'todo';
+  const days = (x.mission.frequency==='daily' && x.mission.daysOfWeek && x.mission.daysOfWeek.length)
+    ? x.mission.daysOfWeek.slice().sort().map(d=>DAY_LABELS[d]).join(' · ') : null;
+  return `
+    <div class="mission-card ${status==='approved'?'is-approved':''}" data-mission-key="${x.key}">
+      <div class="row-between">
+        <strong style="font-size:1.02rem">${escapeHtml(x.mission.title)}</strong>
+        <span class="star-chip"><span class="s">${starIcon()}</span> ${x.mission.points}</span>
+      </div>
+      <p style="color:var(--ink-soft); font-size:.86rem">${escapeHtml(x.mission.criteria||'')}</p>
+      <div class="row-between wrap" style="gap:8px">
+        <span class="eyebrow">${x.period}${days?' · '+days:''}</span>
+        ${badgeFor(status)}
+      </div>
+      ${status==='postponed' && inst && inst.note ? `<p style="font-size:.8rem; color:var(--warn); background:var(--warn-soft); padding:8px 10px; border-radius:10px">💛 ${escapeHtml(inst.note)}</p>` : ''}
+      ${status==='todo' || status==='postponed' ? `<button class="btn primary block" data-mark-done data-mission-id="${x.mission.id}" data-child-id="${child.id}" data-date="${x.dateStr}" data-week="${isoWeekKey(x.dateStr)}">Fatto! ✅</button>` : ''}
+      ${status==='pending' ? `<div class="btn ghost block" style="pointer-events:none">In attesa di conferma dei genitori…</div>` : ''}
+    </div>
+  `;
+}
+function badgeFor(status){
+  const map = { todo:['da fare','todo'], pending:['in attesa di conferma','pending'], approved:['approvata','approved'], postponed:['rimandata','postponed'] };
+  const [label,cls] = map[status]||['','todo'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function renderChildShop(child){
+  const rewards = S.rewards.filter(r=>r.active).sort((a,b)=>(a.order??0)-(b.order??0));
+  const bal = starBalance(child.id);
+  const avail = availableStars(child.id);
+  const myReqs = S.rewardRequests.filter(r=>r.childId===child.id).sort((a,b)=> (b.requestedAt||'').localeCompare(a.requestedAt||''));
+  return `
+    <div class="stack" style="gap:22px">
+      <div class="card row-between" style="background:linear-gradient(135deg, var(--star-soft), var(--surface))">
+        <div><div class="eyebrow">Saldo disponibile</div><span class="star-chip lg"><span class="s">${starIcon()}</span>${avail}</span></div>
+        ${avail!==bal ? `<div style="text-align:right; font-size:.78rem; color:var(--ink-faint)">Totale: ${bal}<br>Riservate: ${bal-avail}</div>` : ''}
+      </div>
+
+      <div>
+        <div class="section-title"><h2>Negozio dei bonus</h2></div>
+        <div class="grid grid-2">
+          ${rewards.map(r=>{
+            const canAfford = r.cost<=avail;
+            const isFav = child.favoriteRewardId===r.id;
+            return `
+            <div class="card stack" style="gap:10px">
+              <div class="row-between">
+                <strong>${escapeHtml(r.title)}</strong>
+                <button class="icon-btn" style="width:32px;height:32px;font-size:15px" data-fav="${r.id}" aria-label="Preferito">${isFav?'💛':'🤍'}</button>
+              </div>
+              ${r.conditions ? `<p style="font-size:.78rem; color:var(--ink-faint)">${escapeHtml(r.conditions)}</p>` : ''}
+              <div class="row-between">
+                <span class="star-chip"><span class="s">${starIcon()}</span> ${r.cost}</span>
+                <button class="btn ${canAfford?'primary':'ghost'} sm" data-request-reward="${r.id}" ${canAfford?'':'disabled'}>Richiedi</button>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+
+      ${myReqs.length>0 ? `
+      <div>
+        <div class="section-title"><h2>Le tue richieste</h2></div>
+        <div class="stack">
+          ${myReqs.map(r=>`
+            <div class="card row-between">
+              <div><strong>${escapeHtml(r.rewardTitle)}</strong><p style="font-size:.78rem; color:var(--ink-faint)">${fmtDateTimeIt(r.requestedAt)}${r.scheduledFor?' · previsto per il '+fmtDateIt(r.scheduledFor):''}</p></div>
+              <div class="row" style="gap:8px">
+                <span class="badge ${r.status}">${reqStatusLabel(r.status)}</span>
+                ${r.status==='requested' ? `<button class="btn ghost sm" data-cancel-request="${r.id}">Annulla</button>` : ''}
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>` : ''}
+    </div>
+  `;
+}
+function reqStatusLabel(s){
+  return {requested:'richiesto', approved:'approvato', rejected:'rifiutato', cancelled:'annullato', used:'utilizzato'}[s]||s;
+}
+
+function renderChildWheel(child){
+  const spin = S.wheelSpins.find(s=>s.childId===child.id && !['completed','cancelled'].includes(s.status))
+    || S.wheelSpins.slice().sort((a,b)=>(b.spunAt||b.createdAt||'').localeCompare(a.spunAt||a.createdAt||'')).find(s=>s.childId===child.id && s.status==='completed' && toRomeDate(s.confirmedAt)===todayStr());
+
+  if(!spin){
+    return `<div class="empty card"><span class="emoji">🎡</span>Nessuna prova al momento.<br><span style="font-size:.85rem">Sarà un genitore ad attivare la ruota degli imprevisti quando serve.</span></div>`;
+  }
+
+  if(spin.status==='ready_to_spin'){
+    const pool = spin.poolChallengeIds.map(id=>S.wheelChallenges.find(c=>c.id===id)).filter(Boolean);
+    return `<div class="wheel-wrap">
+      <p style="text-align:center; color:var(--ink-soft)">Gira la ruota e scopri la tua prova!</p>
+      ${renderWheelSvg(pool, 0, 'wheelSvg')}
+      <button class="btn primary" data-spin="${spin.id}" style="font-size:1.05rem; padding:14px 30px">Gira la ruota 🎡</button>
+    </div>`;
+  }
+  if(spin.status==='alt_requested'){
+    return `<div class="empty card"><span class="emoji">🙋</span>Hai chiesto un'altra prova.<br><span style="font-size:.85rem">Parlane con un genitore: sceglierete insieme come continuare.</span></div>`;
+  }
+  // spun / awaiting_confirmation / completed
+  const isJoker = !!spin.resultIsJoker;
+  return `<div class="wheel-wrap">
+    <div class="card" style="text-align:center; max-width:360px">
+      <div style="font-size:2.4rem">${isJoker?'🎉':'🎯'}</div>
+      <h3 style="margin-top:8px">${escapeHtml(spin.resultText)}</h3>
+      ${spin.status==='spun' ? `
+        <div class="stack" style="margin-top:16px">
+          <button class="btn good block" data-spin-done="${spin.id}">Ho completato! ✅</button>
+          <button class="link-btn" data-spin-alt="${spin.id}">Preferisco un'altra prova</button>
+        </div>` : ''}
+      ${spin.status==='awaiting_confirmation' ? `<p style="margin-top:14px" class="badge pending">In attesa di conferma dei genitori</p>` : ''}
+      ${spin.status==='completed' ? `<p style="margin-top:14px" class="badge approved">Completata! Ottimo lavoro ✓</p>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderWheelSvg(pool, rotation, id){
+  const n = Math.max(pool.length,1);
+  const colors = ['#6C5CE7','#FF7A59','#FFC845','#43C6AC','#4FA8E0','#F06AA0','#5CD17E','#B084F0'];
+  const cx=100, cy=100, r=98;
+  let paths='';
+  for(let i=0;i<n;i++){
+    const a0 = (i/n)*2*Math.PI - Math.PI/2;
+    const a1 = ((i+1)/n)*2*Math.PI - Math.PI/2;
+    const x0 = cx+r*Math.cos(a0), y0=cy+r*Math.sin(a0);
+    const x1 = cx+r*Math.cos(a1), y1=cy+r*Math.sin(a1);
+    const large = (a1-a0)>Math.PI?1:0;
+    paths += `<path d="M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${colors[i%colors.length]}" stroke="#fff" stroke-width="2"/>`;
+    const mid = (a0+a1)/2;
+    const tx = cx+ (r*0.62)*Math.cos(mid), ty = cy+(r*0.62)*Math.sin(mid);
+    const label = pool[i] ? (pool[i].isJoker?'🃏':'✦') : '';
+    paths += `<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#fff">${label}</text>`;
+  }
+  return `<div class="wheel-holder"><div class="wheel-pointer">📍</div>
+    <svg class="wheel-svg" id="${id}" viewBox="0 0 200 200" style="transform:rotate(${rotation}deg)">${paths}</svg>
+    <div class="wheel-hub">🎡</div>
+  </div>`;
+}
+
+/* ============================================================
+   RENDER: PARENT LOCK
+   ============================================================ */
+function renderParentLock(){
+  const hasPin = !!(S.meta && S.meta.parentPinHash);
+  let title, sub;
+  if(!hasPin){
+    if(pinMode==='confirm'){ title='Conferma il PIN'; sub='Reinserisci le stesse cifre.'; }
+    else { title='Crea un PIN per i genitori'; sub='Scegli 4-6 cifre. Ti servirà per accedere a questa area.'; }
+  } else {
+    title='Area Genitori'; sub='Inserisci il PIN per continuare.';
+  }
+  const len = pinDraft.length;
+  return `
+    <div class="lock-screen">
+      ${heroDeco()}
+      <div class="avatar xl" style="background:var(--primary-soft)">🔒</div>
+      <div><h2>${title}</h2><p style="color:var(--ink-soft); margin-top:6px">${sub}</p></div>
+      <div class="pin-dots">${Array.from({length:6}).map((_,i)=>`<div class="pin-dot ${i<len?'filled':''}"></div>`).join('')}</div>
+      ${pinError ? `<p style="color:var(--danger); font-weight:700; font-size:.85rem">${escapeHtml(pinError)}</p>` : ''}
+      <div class="keypad">
+        ${[1,2,3,4,5,6,7,8,9].map(n=>`<button data-pinkey="${n}">${n}</button>`).join('')}
+        <button data-pinkey="clear" style="font-size:.85rem">Cancella</button>
+        <button data-pinkey="0">0</button>
+        <button data-pinkey="back">⌫</button>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   RENDER: PARENT SCREENS
+   ============================================================ */
+const PARENT_TABS = [
+  {id:'inbox', label:'Conferme', ico:'📥'},
+  {id:'missions', label:'Missioni', ico:'🗂️'},
+  {id:'rewards', label:'Premi', ico:'🎁'},
+  {id:'profiles', label:'Profili', ico:'🧒'},
+  {id:'history', label:'Storico', ico:'📜'},
+  {id:'weekly', label:'Riepilogo', ico:'📅'},
+  {id:'wheel', label:'Ruota', ico:'🎡'},
+  {id:'team', label:'Squadra', ico:'🤝'},
+  {id:'settings', label:'Impostazioni', ico:'⚙️'},
+];
+function renderParentScreen(tab){
+  const tabs = `<div class="side-tabs">${PARENT_TABS.map(t=>`<button data-ptab="${t.id}" class="${tab===t.id?'active':''}">${t.ico} ${t.label}</button>`).join('')}</div>`;
+  const mobileTabs = `<div class="grid" style="grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:18px" class="mobile-only-tabs">
+    ${PARENT_TABS.map(t=>`<button class="btn ${tab===t.id?'primary':'ghost'} sm" data-ptab="${t.id}">${t.ico} ${t.label}</button>`).join('')}
+  </div>`;
+  let content = '';
+  if(tab==='inbox') content = renderParentInbox();
+  else if(tab==='missions') content = renderParentMissions();
+  else if(tab==='rewards') content = renderParentRewards();
+  else if(tab==='profiles') content = renderParentProfiles();
+  else if(tab==='history') content = renderParentHistory();
+  else if(tab==='weekly') content = renderParentWeekly();
+  else if(tab==='wheel') content = renderParentWheel();
+  else if(tab==='team') content = renderParentTeam();
+  else if(tab==='settings') content = renderParentSettings();
+  return `${tabs}<div class="show-mobile-tabs">${mobileTabs}</div>${content}
+    <style>.show-mobile-tabs{display:block}@media(min-width:720px){.show-mobile-tabs{display:none}}</style>`;
+}
+
+function renderParentInbox(){
+  const pendingMissions = S.missionInstances.filter(i=>i.status==='pending').sort((a,b)=>(a.requestedAt||'').localeCompare(b.requestedAt||''));
+  const pendingRewards = S.rewardRequests.filter(r=>r.status==='requested').sort((a,b)=>(a.requestedAt||'').localeCompare(b.requestedAt||''));
+  const pendingTeam = S.teamInstances.filter(t=>t.status==='pending' && Object.values(t.participants||{}).some(Boolean));
+  const pendingSpins = S.wheelSpins.filter(s=>s.status==='awaiting_confirmation' || s.status==='alt_requested');
+  const total = pendingMissions.length+pendingRewards.length+pendingTeam.length+pendingSpins.length;
+
+  return `<div class="stack" style="gap:22px">
+    ${total===0? `<div class="empty card"><span class="emoji">✨</span>Tutto confermato! Nessuna richiesta in sospeso.</div>` : ''}
+
+    ${pendingMissions.length? `<div><div class="section-title"><h2>Missioni da confermare</h2><span class="eyebrow">${pendingMissions.length}</span></div>
+      <div class="stack">${pendingMissions.map(i=>{
+        const m = missionById(i.missionId), c = childById(i.childId);
+        return `<div class="card row-between wrap" style="gap:12px">
+          <div class="row" style="gap:10px">
+            <div class="avatar" style="background:${c?c.color+'33':'var(--surface-2)'}">${c?c.avatar:'❓'}</div>
+            <div><strong>${escapeHtml(m?m.title:'—')}</strong><p style="font-size:.8rem; color:var(--ink-faint)">${c?c.name:''} · ⭐ ${i.points} · ${fmtDateTimeIt(i.requestedAt)}</p></div>
+          </div>
+          <div class="row" style="gap:8px">
+            <button class="btn ghost sm" data-postpone="${i.id}">Rimanda</button>
+            <button class="btn good sm" data-approve="${i.id}">Conferma ✓</button>
+          </div>
+        </div>`;
+      }).join('')}</div></div>` : ''}
+
+    ${pendingRewards.length? `<div><div class="section-title"><h2>Premi richiesti</h2><span class="eyebrow">${pendingRewards.length}</span></div>
+      <div class="stack">${pendingRewards.map(r=>{
+        const c = childById(r.childId);
+        return `<div class="card row-between wrap" style="gap:12px">
+          <div class="row" style="gap:10px">
+            <div class="avatar" style="background:${c?c.color+'33':'var(--surface-2)'}">${c?c.avatar:'❓'}</div>
+            <div><strong>${escapeHtml(r.rewardTitle)}</strong><p style="font-size:.8rem; color:var(--ink-faint)">${c?c.name:''} · ⭐ ${r.cost} · ${fmtDateTimeIt(r.requestedAt)}</p></div>
+          </div>
+          <div class="row" style="gap:8px">
+            <button class="btn ghost sm" data-reject-reward="${r.id}">Rifiuta</button>
+            <button class="btn good sm" data-approve-reward="${r.id}">Approva ✓</button>
+          </div>
+        </div>`;
+      }).join('')}</div></div>` : ''}
+
+    ${pendingTeam.length? `<div><div class="section-title"><h2>Missione di squadra</h2></div>
+      <div class="stack">${pendingTeam.map(t=>{
+        const names = Object.keys(t.participants||{}).filter(k=>t.participants[k]).map(id=>childById(id)?.name||id);
+        return `<div class="card row-between wrap" style="gap:12px">
+          <div><strong>${fmtDateIt(t.date)}</strong><p style="font-size:.8rem; color:var(--ink-faint)">Completata da: ${names.join(', ')}</p></div>
+          <button class="btn good sm" data-confirm-team="${t.id}">Conferma progresso ✓</button>
+        </div>`;
+      }).join('')}</div></div>` : ''}
+
+    ${pendingSpins.length? `<div><div class="section-title"><h2>Ruota degli imprevisti</h2></div>
+      <div class="stack">${pendingSpins.map(s=>{
+        const c = childById(s.childId);
+        if(s.status==='alt_requested'){
+          return `<div class="card stack" style="gap:10px">
+            <div class="row" style="gap:10px"><div class="avatar" style="background:${c?c.color+'33':''}">${c?c.avatar:''}</div><strong>${c?c.name:''}</strong><span class="badge pending">chiede un'altra prova</span></div>
+            <div class="row" style="gap:8px">
+              <button class="btn ghost sm" data-spin-reset="${s.id}">Fai girare di nuovo</button>
+              <button class="btn primary sm" data-spin-pick="${s.id}">Scegli tu la prova</button>
+            </div>
+          </div>`;
+        }
+        return `<div class="card row-between wrap" style="gap:12px">
+          <div class="row" style="gap:10px">
+            <div class="avatar" style="background:${c?c.color+'33':''}">${c?c.avatar:''}</div>
+            <div><strong>${c?c.name:''}</strong><p style="font-size:.8rem; color:var(--ink-faint)">${escapeHtml(s.resultText)}</p></div>
+          </div>
+          <button class="btn good sm" data-confirm-spin="${s.id}">Conferma ✓</button>
+        </div>`;
+      }).join('')}</div></div>` : ''}
+  </div>`;
+}
+
+function renderParentMissions(){
+  const missions = S.missions.slice().sort((a,b)=>(a.order??0)-(b.order??0));
+  return `<div class="stack" style="gap:16px">
+    <div class="row-between"><h2 style="font-size:1.1rem">Missioni (${missions.length})</h2><button class="btn primary sm" data-new-mission>+ Nuova missione</button></div>
+    <div class="stack">
+      ${missions.map(m=>{
+        const susp = isMissionSuspended(m, todayStr());
+        const assigned = (m.assignedTo||[]).map(id=>childById(id)?.name||id).join(', ');
+        return `<div class="card stack" style="gap:8px; ${!m.active?'opacity:.55':''}">
+          <div class="row-between wrap" style="gap:8px">
+            <div>
+              <div class="row" style="gap:8px">
+                <strong>${escapeHtml(m.title)}</strong>
+                <span class="star-chip"><span class="s">${starIcon()}</span>${m.points}</span>
+                ${susp?'<span class="badge postponed">sospesa</span>':''}
+                ${!m.active?'<span class="badge cancelled">disattivata</span>':''}
+              </div>
+              <p style="font-size:.8rem; color:var(--ink-faint); margin-top:4px">${freqLabel(m)} · ${escapeHtml(assigned)}</p>
+            </div>
+            <div class="row" style="gap:6px">
+              ${m.frequency==='occasional' ? `<button class="btn ghost sm" data-assign-occasional="${m.id}">Assegna oggi</button>`:''}
+              <button class="btn ghost sm" data-suspend-mission="${m.id}">${susp?'Riattiva':'Sospendi'}</button>
+              <button class="btn ghost sm" data-edit-mission="${m.id}">Modifica</button>
+              <button class="btn ghost sm" data-delete-mission="${m.id}">Elimina</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+function freqLabel(m){
+  if(m.frequency==='daily') return (m.daysOfWeek&&m.daysOfWeek.length)? m.daysOfWeek.slice().sort().map(d=>DAY_LABELS[d]).join(' ') : 'Ogni giorno';
+  if(m.frequency==='weekly') return 'Una volta a settimana';
+  return 'Occasionale';
+}
+
+function renderParentRewards(){
+  const rewards = S.rewards.slice().sort((a,b)=>(a.order??0)-(b.order??0));
+  return `<div class="stack" style="gap:16px">
+    <div class="row-between"><h2 style="font-size:1.1rem">Negozio dei bonus (${rewards.length})</h2><button class="btn primary sm" data-new-reward>+ Nuovo premio</button></div>
+    <div class="grid grid-2">
+      ${rewards.map(r=>`
+        <div class="card stack" style="gap:8px; ${!r.active?'opacity:.55':''}">
+          <div class="row-between"><strong>${escapeHtml(r.title)}</strong><span class="star-chip"><span class="s">${starIcon()}</span>${r.cost}</span></div>
+          ${r.conditions? `<p style="font-size:.8rem; color:var(--ink-faint)">${escapeHtml(r.conditions)}</p>`:''}
+          <p style="font-size:.76rem; color:var(--ink-faint)">Frequenza: ${maxFreqLabel(r.maxFrequency)}${r.availability?' · Disponibilità: '+escapeHtml(r.availability):''}</p>
+          <div class="row" style="gap:6px">
+            <button class="btn ghost sm" data-edit-reward="${r.id}">Modifica</button>
+            <button class="btn ghost sm" data-toggle-reward="${r.id}">${r.active?'Disattiva':'Riattiva'}</button>
+            <button class="btn ghost sm" data-delete-reward="${r.id}">Elimina</button>
+          </div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+function maxFreqLabel(f){ return {unlimited:'illimitata', once_per_week:'1 volta a settimana', once_per_month:'1 volta al mese'}[f]||f; }
+
+function renderParentProfiles(){
+  const kids = S.children.slice().sort((a,b)=>(a.order??0)-(b.order??0));
+  return `<div class="stack" style="gap:16px">
+    <div class="row-between"><h2 style="font-size:1.1rem">Profili</h2><button class="btn primary sm" data-new-child>+ Aggiungi profilo</button></div>
+    <div class="grid grid-2">
+      ${kids.map(c=>`
+        <div class="card stack" style="gap:10px">
+          <div class="row" style="gap:12px">
+            <div class="avatar lg" style="background:${c.color}33">${c.avatar}</div>
+            <div><strong style="font-size:1.1rem">${escapeHtml(c.name)}</strong>
+            ${c.ageYears?`<p style="font-size:.8rem; color:var(--ink-faint)">${c.ageYears} anni</p>`:''}
+            </div>
+          </div>
+          ${c.note?`<p style="font-size:.82rem; color:var(--ink-soft)">${escapeHtml(c.note)}</p>`:''}
+          <button class="btn ghost sm" data-edit-child="${c.id}">Modifica profilo</button>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function renderParentHistory(){
+  const kids = S.children;
+  const entries = S.ledgerEntries.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
+  return `<div class="stack" style="gap:16px">
+    <div class="row-between"><h2 style="font-size:1.1rem">Storico stelle</h2><button class="btn ghost sm" data-open-correction>+ Correggi</button></div>
+    <div class="grid grid-2">
+      ${kids.map(c=>`<div class="card row-between"><div class="row" style="gap:10px"><div class="avatar" style="background:${c.color}33">${c.avatar}</div><strong>${escapeHtml(c.name)}</strong></div><span class="star-chip"><span class="s">${starIcon()}</span>${starBalance(c.id)}</span></div>`).join('')}
+    </div>
+    <div class="card table-wrap">
+      <table>
+        <thead><tr><th>Data</th><th>Bambina</th><th>Tipo</th><th>Motivo</th><th style="text-align:right">Stelle</th></tr></thead>
+        <tbody>
+          ${entries.length===0?`<tr><td colspan="5" style="text-align:center; color:var(--ink-faint)">Ancora nessun movimento</td></tr>`:''}
+          ${entries.map(e=>{
+            const c = childById(e.childId);
+            return `<tr>
+              <td>${fmtDateTimeIt(e.createdAt)}</td>
+              <td>${c?escapeHtml(c.name):'—'}</td>
+              <td>${ledgerTypeLabel(e.type)}</td>
+              <td>${escapeHtml(e.reason||'')}</td>
+              <td style="text-align:right; font-weight:700; color:${e.amount>=0?'var(--good)':'var(--danger)'}" class="num">${e.amount>=0?'+':''}${e.amount}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+function ledgerTypeLabel(t){ return {earned:'Guadagnate', spent:'Spese', correction:'Correzione', refund:'Rimborso'}[t]||t; }
+
+function renderParentWeekly(){
+  const kids = S.children;
+  const today = todayStr();
+  const weekAgo = isoWeekStart(today);
+  return `<div class="stack" style="gap:18px">
+    <h2 style="font-size:1.1rem">Riepilogo settimanale <span style="font-weight:500; color:var(--ink-faint); font-size:.85rem">(${fmtDateIt(weekAgo)} – ${fmtDateIt(today)})</span></h2>
+    <p style="font-size:.82rem; color:var(--ink-faint)">Ogni bambina ha un proprio obiettivo personale: non c'è mai un confronto tra sorelle.</p>
+    <div class="grid grid-2">
+      ${kids.map(c=>{
+        const entries = S.ledgerEntries.filter(e=>e.childId===c.id && e.createdAt && toRomeDate(e.createdAt)>=weekAgo);
+        const earned = entries.filter(e=>e.amount>0).reduce((s,e)=>s+e.amount,0);
+        const spent = entries.filter(e=>e.amount<0).reduce((s,e)=>s-e.amount,0);
+        const approvedCount = S.missionInstances.filter(i=>i.childId===c.id && i.status==='approved' && i.date>=weekAgo && i.date<=today).length;
+        const usedRewards = S.rewardRequests.filter(r=>r.childId===c.id && r.status==='used' && toRomeDate(r.usedAt)>=weekAgo).length;
+        const weekEarned = weeklyStarsEarned(c.id, today);
+        const goal = c.weeklyGoal||120;
+        const goalPct = clamp(Math.round((weekEarned/goal)*100),0,100);
+        const goalReached = weekEarned>=goal;
+        const hasActiveSpin = S.wheelSpins.some(s=>s.childId===c.id && !['completed','cancelled'].includes(s.status));
+        return `<div class="card stack" style="gap:12px">
+          <div class="row" style="gap:10px"><div class="avatar" style="background:${c.color}33">${c.avatar}</div><strong style="font-size:1.05rem">${escapeHtml(c.name)}</strong></div>
+          <div class="grid grid-2" style="gap:10px">
+            <div class="card" style="background:var(--good-soft); box-shadow:none; padding:12px"><div class="eyebrow">Stelle guadagnate</div><div style="font-size:1.4rem; font-weight:800" class="num">+${earned}</div></div>
+            <div class="card" style="background:var(--surface-2); box-shadow:none; padding:12px"><div class="eyebrow">Stelle spese</div><div style="font-size:1.4rem; font-weight:800" class="num">${spent}</div></div>
+            <div class="card" style="background:var(--primary-soft); box-shadow:none; padding:12px"><div class="eyebrow">Missioni completate</div><div style="font-size:1.4rem; font-weight:800" class="num">${approvedCount}</div></div>
+            <div class="card" style="background:var(--warm-soft); box-shadow:none; padding:12px"><div class="eyebrow">Premi utilizzati</div><div style="font-size:1.4rem; font-weight:800" class="num">${usedRewards}</div></div>
+          </div>
+          <div style="border-top:1px solid var(--border); padding-top:12px">
+            <div class="row-between" style="margin-bottom:6px">
+              <span class="eyebrow">Obiettivo personale</span>
+              <strong class="num">${weekEarned} / ${goal} ⭐</strong>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:${goalPct}%"></div></div>
+            ${goalReached
+              ? `<p style="font-size:.8rem; color:var(--good); font-weight:700; margin-top:8px">Obiettivo raggiunto questa settimana 🎉</p>`
+              : hasActiveSpin
+                ? `<p style="font-size:.8rem; color:var(--ink-faint); margin-top:8px">C'è già una prova della ruota attiva per lei.</p>`
+                : `<button class="btn ghost sm" style="margin-top:10px" data-activate-wheel-goal="${c.id}">Attiva la ruota degli imprevisti per lei</button>`}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+
+function renderParentWheel(){
+  const challenges = S.wheelChallenges.slice().sort((a,b)=>(a.order??0)-(b.order??0));
+  const kids = S.children;
+  return `<div class="stack" style="gap:22px">
+    <div>
+      <div class="row-between"><h2 style="font-size:1.1rem">Attiva la ruota</h2></div>
+      <div class="card stack" style="gap:12px; margin-top:10px">
+        <p style="font-size:.85rem; color:var(--ink-soft)">Scegli la bambina e le prove tra cui estrarre (tienile tutte selezionate per usarle tutte).</p>
+        <div id="wheelActivateForm"></div>
+      </div>
+    </div>
+    <div>
+      <div class="row-between"><h2 style="font-size:1.1rem">Prove disponibili</h2><button class="btn primary sm" data-new-wheel>+ Nuova prova</button></div>
+      <div class="stack" style="margin-top:10px">
+        ${challenges.map(c=>`<div class="card row-between">
+          <div class="row" style="gap:8px">${c.isJoker?'<span class="badge team">🃏 Jolly</span>':''}<span>${escapeHtml(c.text)}</span></div>
+          <div class="row" style="gap:6px">
+            <button class="btn ghost sm" data-edit-wheel="${c.id}">Modifica</button>
+            <button class="btn ghost sm" data-delete-wheel="${c.id}">Elimina</button>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderParentTeam(){
+  const g = S.teamGoal || {};
+  const pct = clamp(Math.round((teamProgress()/(g.targetPoints||1))*100),0,100);
+  return `<div class="stack" style="gap:18px">
+    <div class="card">
+      <div class="row-between" style="margin-bottom:8px"><h2 style="font-size:1.1rem">${escapeHtml(g.title||'Obiettivo di famiglia')}</h2><button class="btn ghost sm" data-edit-team>Modifica</button></div>
+      <p style="color:var(--ink-soft); font-size:.88rem; margin-bottom:12px">${escapeHtml(g.description||'')}</p>
+      <div class="row-between" style="margin-bottom:6px"><span class="eyebrow">Progresso condiviso</span><span class="num">${teamProgress()} / ${g.targetPoints}</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div class="row" style="gap:8px; margin-top:14px">
+        <button class="btn ghost sm" data-manual-contrib>+ Aggiungi progresso manuale</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="font-size:.95rem; margin-bottom:8px">Missione di squadra collegata</h3>
+      <p style="font-size:.88rem"><strong>${escapeHtml(g.missionTitle||'')}</strong></p>
+      <p style="font-size:.82rem; color:var(--ink-faint)">${escapeHtml(g.missionCriteria||'')} · ⭐ punti squadra per completamento: ${g.pointsPerCompletion}</p>
+    </div>
+  </div>`;
+}
+
+function renderParentSettings(){
+  return `<div class="stack" style="gap:16px">
+    <div class="card stack" style="gap:12px">
+      <h2 style="font-size:1.1rem">Sicurezza</h2>
+      <button class="btn ghost" data-change-pin>Cambia PIN genitori</button>
+      <button class="btn ghost" data-lock-now>Blocca area genitori</button>
+    </div>
+    <div class="card">
+      <h2 style="font-size:1.1rem; margin-bottom:8px">Informazioni</h2>
+      <p style="font-size:.85rem; color:var(--ink-soft)">Missione Famiglia salva i dati in modo condiviso e persistente tra i dispositivi collegati a questa pagina. Il fuso orario usato per le missioni giornaliere è Europe/Rome.</p>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   EVENT WIRING
+   ============================================================ */
+function wireScreenEvents(route){
+  const main = document.getElementById('mainArea');
+  if(!main) return;
+
+  main.addEventListener('click', async (e)=>{
+    const t = e.target.closest('[data-select-child],[data-nav],[data-mark-done],[data-fav],[data-request-reward],[data-cancel-request],[data-spin],[data-spin-done],[data-spin-alt],[data-team-done],[data-approve],[data-postpone],[data-approve-reward],[data-reject-reward],[data-confirm-team],[data-confirm-spin],[data-spin-reset],[data-spin-pick],[data-new-mission],[data-edit-mission],[data-delete-mission],[data-suspend-mission],[data-assign-occasional],[data-new-reward],[data-edit-reward],[data-toggle-reward],[data-delete-reward],[data-new-child],[data-edit-child],[data-open-correction],[data-new-wheel],[data-edit-wheel],[data-delete-wheel],[data-edit-team],[data-manual-contrib],[data-change-pin],[data-lock-now],[data-pinkey],[data-ptab],[data-activate-wheel-goal]');
+    if(!t) return;
+
+    if(t.dataset.selectChild){ location.hash = '#/child/'+t.dataset.selectChild; return; }
+    if(t.dataset.nav){ location.hash = '#/child/'+route[1]+'/'+(t.dataset.nav==='home'?'':t.dataset.nav); return; }
+    if(t.dataset.ptab){ location.hash = '#/parent/'+t.dataset.ptab; return; }
+
+    if(t.dataset.markDone!==undefined && t.hasAttribute('data-mark-done')){
+      const m = missionById(t.dataset.missionId);
+      await markMissionDone(m, t.dataset.childId, t.dataset.date, t.dataset.week);
+      return;
+    }
+    if(t.dataset.fav){ await toggleFavorite(route[1], t.dataset.fav); return; }
+    if(t.dataset.requestReward){ await requestReward(rewardById(t.dataset.requestReward), route[1]); return; }
+    if(t.dataset.cancelRequest){ await cancelRequest(S.rewardRequests.find(r=>r.id===t.dataset.cancelRequest)); return; }
+    if(t.dataset.spin){ await handleSpinClick(t.dataset.spin, t); return; }
+    if(t.dataset.spinDone){ await markSpinDone(S.wheelSpins.find(s=>s.id===t.dataset.spinDone)); return; }
+    if(t.dataset.spinAlt){ openAltModal(t.dataset.spinAlt); return; }
+    if(t.dataset.teamDone!==undefined && t.hasAttribute('data-team-done')){ await markTeamPart(route[1]); return; }
+
+    if(t.dataset.approve){ await approveInstance(instanceById(t.dataset.approve)); celebrateAndToast(); return; }
+    if(t.dataset.postpone){ openPostponeModal(t.dataset.postpone); return; }
+    if(t.dataset.approveReward){ await decideRequest(S.rewardRequests.find(r=>r.id===t.dataset.approveReward), true); toast('Premio approvato!','🎉'); return; }
+    if(t.dataset.rejectReward){ openRejectRewardModal(t.dataset.rejectReward); return; }
+    if(t.dataset.confirmTeam){ await confirmTeamInstance(S.teamInstances.find(x=>x.id===t.dataset.confirmTeam)); toast('Progresso di squadra aggiornato!','🤝'); return; }
+    if(t.dataset.confirmSpin){ await confirmSpin(S.wheelSpins.find(s=>s.id===t.dataset.confirmSpin)); toast('Prova confermata!','🎉'); return; }
+    if(t.dataset.spinReset){ await resetSpin(S.wheelSpins.find(s=>s.id===t.dataset.spinReset)); return; }
+    if(t.dataset.spinPick){ openAssignAltModal(t.dataset.spinPick); return; }
+
+    if(t.dataset.newMission!==undefined){ openMissionModal(null); return; }
+    if(t.dataset.editMission){ openMissionModal(missionById(t.dataset.editMission)); return; }
+    if(t.dataset.deleteMission){ if(confirm('Eliminare questa missione?')) await deleteMission(t.dataset.deleteMission); return; }
+    if(t.dataset.suspendMission){ openSuspendModal(missionById(t.dataset.suspendMission)); return; }
+    if(t.dataset.assignOccasional){ openAssignOccasionalModal(missionById(t.dataset.assignOccasional)); return; }
+
+    if(t.dataset.newReward!==undefined){ openRewardModal(null); return; }
+    if(t.dataset.editReward){ openRewardModal(rewardById(t.dataset.editReward)); return; }
+    if(t.dataset.toggleReward){ const r = rewardById(t.dataset.toggleReward); await doc('rewards/'+r.id).update({active:!r.active}); return; }
+    if(t.dataset.deleteReward){ if(confirm('Eliminare questo premio?')) await deleteReward(t.dataset.deleteReward); return; }
+
+    if(t.dataset.newChild!==undefined){ openChildModal(null); return; }
+    if(t.dataset.editChild){ openChildModal(childById(t.dataset.editChild)); return; }
+
+    if(t.dataset.openCorrection!==undefined){ openCorrectionModal(); return; }
+
+    if(t.dataset.newWheel!==undefined){ openWheelModal(null); return; }
+    if(t.dataset.editWheel){ openWheelModal(S.wheelChallenges.find(c=>c.id===t.dataset.editWheel)); return; }
+    if(t.dataset.deleteWheel){ if(confirm('Eliminare questa prova?')) await deleteWheelChallenge(t.dataset.deleteWheel); return; }
+
+    if(t.dataset.editTeam!==undefined){ openTeamModal(); return; }
+    if(t.dataset.manualContrib!==undefined){ openManualContribModal(); return; }
+    if(t.dataset.activateWheelGoal){
+      const pool = S.wheelChallenges.filter(c=>c.active).map(c=>c.id);
+      if(pool.length===0){ toast('Aggiungi prima qualche prova alla ruota','⚠️'); }
+      else { await createSpin(t.dataset.activateWheelGoal, pool); toast('Ruota attivata!','🎡'); }
+      return;
+    }
+
+    if(t.dataset.changePin!==undefined){ pinMode='change-current'; pinDraft=''; pinError=''; openChangePinModal(); return; }
+    if(t.dataset.lockNow!==undefined){ parentUnlocked=false; location.hash='#/parent'; return; }
+
+    if(t.dataset.pinkey){ handlePinKey(t.dataset.pinkey); return; }
+  });
+
+  if(route[0]==='parent' && route[1]==='wheel' && parentUnlocked){ mountWheelActivateForm(); }
+}
+
+function celebrateAndToast(){ celebrate(); toast('Missione approvata!','⭐'); }
+
+function openAssignOccasionalModal(mission){
+  const kids = (mission.assignedTo||[]).map(id=>childById(id)).filter(Boolean);
+  if(kids.length===1){ assignOccasional(mission, kids[0].id); return; }
+  openModal(`
+    <div class="modal-head"><h3>Assegna "${escapeHtml(mission.title)}" oggi</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:10px">
+      ${kids.map(c=>`<button class="btn ghost block" data-pickkid="${c.id}" style="text-align:left; display:flex; align-items:center; gap:10px"><span class="avatar" style="background:${c.color}33; width:32px; height:32px; font-size:16px">${c.avatar}</span> ${escapeHtml(c.name)}</button>`).join('')}
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelectorAll('[data-pickkid]').forEach(b=>{
+      b.onclick = async ()=>{ await assignOccasional(mission, b.dataset.pickkid); closeModal(); };
+    });
+  });
+}
+
+/* --- PIN keypad handling --- */
+let pinAutoTimer = null;
+async function handlePinKey(k){
+  if(pinAutoTimer){ clearTimeout(pinAutoTimer); pinAutoTimer=null; }
+  if(k==='clear'){ pinDraft=''; pinError=''; notify(); return; }
+  if(k==='back'){ pinDraft = pinDraft.slice(0,-1); pinError=''; notify(); return; }
+  if(pinDraft.length>=6) return;
+  pinDraft += k;
+  notify();
+  if(pinDraft.length===6){ await submitPin(); return; }
+  if(pinDraft.length>=4){
+    pinAutoTimer = setTimeout(()=>{ pinAutoTimer=null; if(pinDraft.length>=4) submitPin(); }, 900);
+  }
+}
+
+async function submitPin(){
+  const hasPin = !!(S.meta && S.meta.parentPinHash);
+  if(!hasPin){
+    if(pinMode==='create'){
+      pinFirstEntry = pinDraft; pinDraft=''; pinMode='confirm'; pinError=''; notify(); return;
+    }
+    if(pinMode==='confirm'){
+      if(pinDraft===pinFirstEntry){
+        await setParentPin(pinDraft);
+        parentUnlocked = true; pinDraft=''; pinFirstEntry=''; pinMode='create'; pinError='';
+        location.hash='#/parent/inbox';
+      } else {
+        pinError='I PIN non coincidono. Riprova.'; pinDraft=''; pinMode='create'; notify();
+      }
+      return;
+    }
+    pinMode='create'; pinDraft=''; notify(); return;
+  }
+  const ok = await checkParentPin(pinDraft);
+  if(ok){ parentUnlocked=true; pinDraft=''; pinError=''; location.hash='#/parent/inbox'; }
+  else { pinError='PIN errato. Riprova.'; pinDraft=''; notify(); }
+}
+
+/* ============================================================
+   MODALS: forms
+   ============================================================ */
+function openPostponeModal(instanceId){
+  openModal(`
+    <div class="modal-head"><h3>Rimanda missione</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Un messaggio gentile per lei (facoltativo)</label><textarea id="pnote" placeholder="Es. Riproviamo domani con calma!"></textarea></div>
+      <button class="btn primary block" id="pnoteSave">Rimanda missione</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#pnoteSave').onclick = async ()=>{
+      await postponeInstance(instanceById(instanceId), root.querySelector('#pnote').value.trim());
+      closeModal();
+    };
+  });
+}
+
+function openRejectRewardModal(reqId){
+  openModal(`
+    <div class="modal-head"><h3>Rifiuta richiesta premio</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Motivo (facoltativo)</label><textarea id="rnote"></textarea></div>
+      <button class="btn danger block" id="rsave">Rifiuta richiesta</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#rsave').onclick = async ()=>{
+      await decideRequest(S.rewardRequests.find(r=>r.id===reqId), false, root.querySelector('#rnote').value.trim());
+      closeModal(); toast('Richiesta rifiutata','💬');
+    };
+  });
+}
+
+function openAltModal(spinId){
+  openModal(`
+    <div class="modal-head"><h3>Preferisco un'altra prova</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <p style="color:var(--ink-soft); font-size:.9rem">Va benissimo! Un genitore vedrà la tua richiesta e deciderete insieme come continuare.</p>
+      <div class="field"><label>Vuoi aggiungere una nota? (facoltativo)</label><textarea id="anote"></textarea></div>
+      <button class="btn primary block" id="asave">Invia richiesta</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#asave').onclick = async ()=>{
+      await requestAlternative(S.wheelSpins.find(s=>s.id===spinId), root.querySelector('#anote').value.trim());
+      closeModal();
+    };
+  });
+}
+
+function openAssignAltModal(spinId){
+  const spin = S.wheelSpins.find(s=>s.id===spinId);
+  const options = S.wheelChallenges.filter(c=>c.active);
+  openModal(`
+    <div class="modal-head"><h3>Scegli un'altra prova</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:10px">
+      ${options.map(c=>`<button class="btn ghost block" data-pick="${c.id}" style="text-align:left">${c.isJoker?'🃏 ':''}${escapeHtml(c.text)}</button>`).join('')}
+      <button class="btn ghost block" data-reset>Fai rigirare la ruota invece</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelectorAll('[data-pick]').forEach(b=>{
+      b.onclick = async ()=>{ await assignAlternative(spin, b.dataset.pick); closeModal(); };
+    });
+    root.querySelector('[data-reset]').onclick = async ()=>{ await resetSpin(spin); closeModal(); };
+  });
+}
+
+function openMissionModal(mission){
+  const isEdit = !!mission;
+  const kids = S.children;
+  const daysSel = mission?.daysOfWeek || [];
+  openModal(`
+    <div class="modal-head"><h3>${isEdit?'Modifica':'Nuova'} missione</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Titolo</label><input type="text" id="mTitle" value="${escapeHtml(mission?.title||'')}" placeholder="Es. Rifare il letto"></div>
+      <div class="field"><label>Criterio di completamento</label><textarea id="mCriteria" placeholder="Cosa significa 'fatto'?">${escapeHtml(mission?.criteria||'')}</textarea></div>
+      <div class="field"><label>Punti (stelle)</label><input type="number" id="mPoints" min="1" value="${mission?.points||10}"></div>
+      <div class="field"><label>Frequenza</label>
+        <select id="mFreq">
+          <option value="daily" ${(!mission||mission.frequency==='daily')?'selected':''}>Giornaliera</option>
+          <option value="weekly" ${mission?.frequency==='weekly'?'selected':''}>Settimanale (una volta a settimana)</option>
+          <option value="occasional" ${mission?.frequency==='occasional'?'selected':''}>Occasionale (assegnata a mano)</option>
+        </select>
+      </div>
+      <div class="field" id="mDaysWrap"><label>Giorni della settimana (vuoto = tutti i giorni)</label>
+        <div class="daychips">${[1,2,3,4,5,6,0].map(d=>`<button type="button" class="daychip ${daysSel.includes(d)?'on':''}" data-day="${d}">${DAY_LABELS[d]}</button>`).join('')}</div>
+      </div>
+      <div class="field"><label>Assegnata a</label>
+        <div class="stack" style="gap:6px">
+          ${kids.map(c=>`<label class="checkrow"><input type="checkbox" data-assign="${c.id}" ${(mission?mission.assignedTo.includes(c.id):true)?'checked':''}> ${escapeHtml(c.name)}</label>`).join('')}
+        </div>
+      </div>
+      <button class="btn primary block" id="mSave">Salva missione</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    const daysWrap = root.querySelector('#mDaysWrap');
+    let selDays = new Set(daysSel);
+    daysWrap.addEventListener('click', (e)=>{
+      const b = e.target.closest('[data-day]'); if(!b) return;
+      const d = Number(b.dataset.day);
+      if(selDays.has(d)) selDays.delete(d); else selDays.add(d);
+      b.classList.toggle('on');
+    });
+    function syncFreq(){
+      daysWrap.style.display = root.querySelector('#mFreq').value==='daily' ? '' : 'none';
+    }
+    root.querySelector('#mFreq').addEventListener('change', syncFreq); syncFreq();
+    root.querySelector('#mSave').onclick = async ()=>{
+      const title = root.querySelector('#mTitle').value.trim();
+      if(!title){ toast('Inserisci un titolo','⚠️'); return; }
+      const assignedTo = kids.filter(c=>root.querySelector(`[data-assign="${c.id}"]`).checked).map(c=>c.id);
+      await saveMission({
+        title, criteria: root.querySelector('#mCriteria').value.trim(),
+        points: Number(root.querySelector('#mPoints').value)||1,
+        frequency: root.querySelector('#mFreq').value,
+        daysOfWeek: Array.from(selDays),
+        assignedTo: assignedTo.length?assignedTo:kids.map(c=>c.id),
+        active: mission?.active, suspension: mission?.suspension, order: mission?.order, createdAt: mission?.createdAt
+      }, mission?.id);
+      closeModal(); toast('Missione salvata','✅');
+    };
+  });
+}
+
+function openSuspendModal(mission){
+  const susp = mission.suspension||{};
+  openModal(`
+    <div class="modal-head"><h3>Sospendi missione</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <p style="font-size:.86rem; color:var(--ink-soft)">Utile per malattia, vacanze o altri impegni. La missione non apparirà finché la sospensione è attiva.</p>
+      <div class="field"><label>Sospesa fino al (facoltativo)</label><input type="date" id="sUntil" value="${susp.until||''}"></div>
+      <div class="field"><label>Motivo (facoltativo)</label><input type="text" id="sReason" value="${escapeHtml(susp.reason||'')}"></div>
+      <button class="btn ${susp.active?'ghost':'warn'} block" id="sToggle">${susp.active?'Riattiva subito':'Sospendi ora'}</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#sToggle').onclick = async ()=>{
+      await setSuspension(mission, !susp.active, root.querySelector('#sUntil').value, root.querySelector('#sReason').value.trim());
+      closeModal();
+    };
+  });
+}
+
+function openRewardModal(reward){
+  const isEdit = !!reward;
+  openModal(`
+    <div class="modal-head"><h3>${isEdit?'Modifica':'Nuovo'} premio</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Titolo</label><input type="text" id="rTitle" value="${escapeHtml(reward?.title||'')}"></div>
+      <div class="field"><label>Costo (stelle)</label><input type="number" id="rCost" min="1" value="${reward?.cost||10}"></div>
+      <div class="field"><label>Frequenza massima</label>
+        <select id="rMaxFreq">
+          <option value="unlimited" ${(!reward||reward.maxFrequency==='unlimited')?'selected':''}>Illimitata</option>
+          <option value="once_per_week" ${reward?.maxFrequency==='once_per_week'?'selected':''}>Una volta a settimana</option>
+          <option value="once_per_month" ${reward?.maxFrequency==='once_per_month'?'selected':''}>Una volta al mese</option>
+        </select>
+      </div>
+      <div class="field"><label>Disponibilità (facoltativo, es. "3 posti disponibili")</label><input type="text" id="rAvail" value="${escapeHtml(reward?.availability||'')}"></div>
+      <div class="field"><label>Condizioni (facoltativo)</label><textarea id="rCond">${escapeHtml(reward?.conditions||'')}</textarea></div>
+      <button class="btn primary block" id="rSave">Salva premio</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#rSave').onclick = async ()=>{
+      const title = root.querySelector('#rTitle').value.trim();
+      if(!title){ toast('Inserisci un titolo','⚠️'); return; }
+      await saveReward({
+        title, cost: Number(root.querySelector('#rCost').value)||1,
+        maxFrequency: root.querySelector('#rMaxFreq').value,
+        availability: root.querySelector('#rAvail').value.trim(),
+        conditions: root.querySelector('#rCond').value.trim(),
+        active: reward?.active, order: reward?.order, createdAt: reward?.createdAt
+      }, reward?.id);
+      closeModal(); toast('Premio salvato','✅');
+    };
+  });
+}
+
+function openChildModal(child){
+  const isEdit = !!child;
+  openModal(`
+    <div class="modal-head"><h3>${isEdit?'Modifica profilo':'Nuovo profilo'}</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Nome</label><input type="text" id="cName" value="${escapeHtml(child?.name||'')}"></div>
+      <div class="field"><label>Avatar</label><div class="row wrap" style="gap:6px" id="cAvatarWrap">
+        ${AVATAR_EMOJI.map(e=>`<button type="button" class="emoji-pick ${child?.avatar===e?'on':''}" data-emoji="${e}">${e}</button>`).join('')}
+      </div></div>
+      <div class="field"><label>Colore</label><div class="row wrap" style="gap:8px" id="cColorWrap">
+        ${AVATAR_COLORS.map(c=>`<button type="button" class="swatch ${child?.color===c?'on':''}" data-color="${c}" style="background:${c}"></button>`).join('')}
+      </div></div>
+      <div class="field"><label>Età (facoltativo)</label><input type="number" id="cAge" min="1" max="18" value="${child?.ageYears||''}"></div>
+      <div class="field"><label>Note su autonomia/difficoltà (facoltativo)</label><textarea id="cNote" placeholder="Es. preferisce missioni più semplici e istruzioni passo passo">${escapeHtml(child?.note||'')}</textarea></div>
+      <div class="field"><label>Obiettivo personale di stelle a settimana</label><input type="number" id="cGoal" min="1" value="${child?.weeklyGoal||120}">
+        <p class="hint">È un traguardo solo suo: non viene mai confrontato con quello dell'altra bambina.</p>
+      </div>
+      <button class="btn primary block" id="cSave">Salva profilo</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    let avatar = child?.avatar || AVATAR_EMOJI[0];
+    let color = child?.color || AVATAR_COLORS[0];
+    root.querySelector('#cAvatarWrap').addEventListener('click',(e)=>{
+      const b = e.target.closest('[data-emoji]'); if(!b) return;
+      avatar = b.dataset.emoji;
+      root.querySelectorAll('#cAvatarWrap .emoji-pick').forEach(x=>x.classList.toggle('on', x===b));
+    });
+    root.querySelector('#cColorWrap').addEventListener('click',(e)=>{
+      const b = e.target.closest('[data-color]'); if(!b) return;
+      color = b.dataset.color;
+      root.querySelectorAll('#cColorWrap .swatch').forEach(x=>x.classList.toggle('on', x===b));
+    });
+    root.querySelector('#cSave').onclick = async ()=>{
+      const name = root.querySelector('#cName').value.trim();
+      if(!name){ toast('Inserisci un nome','⚠️'); return; }
+      await saveChild({
+        name, avatar, color,
+        ageYears: root.querySelector('#cAge').value ? Number(root.querySelector('#cAge').value) : null,
+        note: root.querySelector('#cNote').value.trim(),
+        weeklyGoal: Number(root.querySelector('#cGoal').value)||120,
+        order: child?.order, active: child?.active, favoriteRewardId: child?.favoriteRewardId, createdAt: child?.createdAt
+      }, child?.id);
+      closeModal(); toast('Profilo salvato','✅');
+    };
+  });
+}
+
+function openCorrectionModal(){
+  const kids = S.children;
+  openModal(`
+    <div class="modal-head"><h3>Correggi stelle</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Bambina</label><select id="corChild">${kids.map(c=>`<option value="${c.id}">${escapeHtml(c.name)}</option>`).join('')}</select></div>
+      <div class="field"><label>Variazione stelle (positiva o negativa)</label><input type="number" id="corAmount" value="5"></div>
+      <div class="field"><label>Motivo (obbligatorio)</label><textarea id="corReason" placeholder="Es. Errore di conferma missione doppia"></textarea></div>
+      <button class="btn primary block" id="corSave">Applica correzione</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#corSave').onclick = async ()=>{
+      const reason = root.querySelector('#corReason').value.trim();
+      const amount = Number(root.querySelector('#corAmount').value);
+      if(!reason){ toast('Il motivo è obbligatorio','⚠️'); return; }
+      if(!amount){ toast('Inserisci una variazione diversa da zero','⚠️'); return; }
+      await addCorrection(root.querySelector('#corChild').value, amount, reason);
+      closeModal(); toast('Correzione applicata','✅');
+    };
+  });
+}
+
+function openWheelModal(challenge){
+  const isEdit = !!challenge;
+  openModal(`
+    <div class="modal-head"><h3>${isEdit?'Modifica':'Nuova'} prova</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Testo della prova</label><textarea id="wText">${escapeHtml(challenge?.text||'')}</textarea></div>
+      <label class="checkrow"><input type="checkbox" id="wJoker" ${challenge?.isJoker?'checked':''}> È un Jolly (prova annullata)</label>
+      <button class="btn primary block" id="wSave">Salva prova</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#wSave').onclick = async ()=>{
+      const text = root.querySelector('#wText').value.trim();
+      if(!text){ toast('Inserisci un testo','⚠️'); return; }
+      await saveWheelChallenge({ text, isJoker: root.querySelector('#wJoker').checked, active:challenge?.active, order:challenge?.order, createdAt:challenge?.createdAt }, challenge?.id);
+      closeModal(); toast('Prova salvata','✅');
+    };
+  });
+}
+
+function openTeamModal(){
+  const g = S.teamGoal||{};
+  const kids = S.children;
+  openModal(`
+    <div class="modal-head"><h3>Obiettivo di famiglia</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Titolo obiettivo</label><input type="text" id="tTitle" value="${escapeHtml(g.title||'')}"></div>
+      <div class="field"><label>Descrizione / premio</label><textarea id="tDesc">${escapeHtml(g.description||'')}</textarea></div>
+      <div class="field"><label>Traguardo (punti)</label><input type="number" id="tTarget" value="${g.targetPoints||100}"></div>
+      <div class="field"><label>Titolo missione di squadra</label><input type="text" id="tMTitle" value="${escapeHtml(g.missionTitle||'')}"></div>
+      <div class="field"><label>Criterio missione di squadra</label><textarea id="tMCrit">${escapeHtml(g.missionCriteria||'')}</textarea></div>
+      <div class="field"><label>Punti squadra per completamento</label><input type="number" id="tPoints" value="${g.pointsPerCompletion||10}"></div>
+      <div class="field"><label>Bambine coinvolte</label>
+        <div class="stack" style="gap:6px">${kids.map(c=>`<label class="checkrow"><input type="checkbox" data-tassign="${c.id}" ${(g.assignedTo||[]).includes(c.id)?'checked':''}> ${escapeHtml(c.name)}</label>`).join('')}</div>
+      </div>
+      <label class="checkrow"><input type="checkbox" id="tActive" ${g.active!==false?'checked':''}> Obiettivo attivo</label>
+      <button class="btn primary block" id="tSave">Salva obiettivo</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#tSave').onclick = async ()=>{
+      const assignedTo = kids.filter(c=>root.querySelector(`[data-tassign="${c.id}"]`).checked).map(c=>c.id);
+      await saveTeamGoal({
+        title: root.querySelector('#tTitle').value.trim(),
+        description: root.querySelector('#tDesc').value.trim(),
+        targetPoints: Number(root.querySelector('#tTarget').value)||100,
+        missionTitle: root.querySelector('#tMTitle').value.trim(),
+        missionCriteria: root.querySelector('#tMCrit').value.trim(),
+        pointsPerCompletion: Number(root.querySelector('#tPoints').value)||10,
+        assignedTo, active: root.querySelector('#tActive').checked
+      });
+      closeModal(); toast('Obiettivo aggiornato','✅');
+    };
+  });
+}
+
+function openManualContribModal(){
+  openModal(`
+    <div class="modal-head"><h3>Aggiungi progresso manuale</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Punti da aggiungere</label><input type="number" id="mcPoints" value="10"></div>
+      <div class="field"><label>Nota (facoltativo)</label><input type="text" id="mcNote"></div>
+      <button class="btn primary block" id="mcSave">Aggiungi</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#mcSave').onclick = async ()=>{
+      await addManualContribution(Number(root.querySelector('#mcPoints').value)||0, root.querySelector('#mcNote').value.trim());
+      closeModal(); toast('Progresso aggiornato','✅');
+    };
+  });
+}
+
+function openChangePinModal(){
+  openModal(`
+    <div class="modal-head"><h3>Cambia PIN</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>PIN attuale</label><input type="password" inputmode="numeric" id="cpCurrent" maxlength="6"></div>
+      <div class="field"><label>Nuovo PIN (4-6 cifre)</label><input type="password" inputmode="numeric" id="cpNew" maxlength="6"></div>
+      <div class="field"><label>Conferma nuovo PIN</label><input type="password" inputmode="numeric" id="cpConfirm" maxlength="6"></div>
+      <p id="cpErr" style="color:var(--danger); font-size:.85rem"></p>
+      <button class="btn primary block" id="cpSave">Salva nuovo PIN</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#cpSave').onclick = async ()=>{
+      const cur = root.querySelector('#cpCurrent').value;
+      const nw = root.querySelector('#cpNew').value;
+      const cf = root.querySelector('#cpConfirm').value;
+      const errEl = root.querySelector('#cpErr');
+      if(!(await checkParentPin(cur))){ errEl.textContent='PIN attuale errato.'; return; }
+      if(nw.length<4){ errEl.textContent='Il nuovo PIN deve avere almeno 4 cifre.'; return; }
+      if(nw!==cf){ errEl.textContent='I nuovi PIN non coincidono.'; return; }
+      await setParentPin(nw);
+      closeModal(); toast('PIN aggiornato','🔒');
+    };
+  });
+}
+
+/* --- Wheel activate form (parent inline, not a modal so it can stay mounted) --- */
+function mountWheelActivateForm(){
+  const el = document.getElementById('wheelActivateForm');
+  if(!el) return;
+  const kids = S.children;
+  const challenges = S.wheelChallenges.filter(c=>c.active);
+  el.innerHTML = `
+    <div class="field"><label>Bambina</label><select id="waChild">${kids.map(c=>`<option value="${c.id}">${escapeHtml(c.name)}</option>`).join('')}</select></div>
+    <div class="field"><label>Prove tra cui estrarre</label>
+      <div class="stack" style="gap:6px">${challenges.map(c=>`<label class="checkrow"><input type="checkbox" data-wpool="${c.id}" checked> ${c.isJoker?'🃏 ':''}${escapeHtml(c.text)}</label>`).join('')}</div>
+    </div>
+    <button class="btn primary" id="waStart">Attiva la ruota per lei</button>
+  `;
+  el.querySelector('#waStart').onclick = async ()=>{
+    const childId = el.querySelector('#waChild').value;
+    const pool = challenges.filter(c=>el.querySelector(`[data-wpool="${c.id}"]`).checked).map(c=>c.id);
+    if(pool.length===0){ toast('Seleziona almeno una prova','⚠️'); return; }
+    const active = S.wheelSpins.find(s=>s.childId===childId && !['completed','cancelled'].includes(s.status));
+    if(active){ toast("C'è già una prova attiva per questa bambina",'⚠️'); return; }
+    await createSpin(childId, pool);
+    toast('Ruota attivata!','🎡');
+  };
+}
+
+async function handleSpinClick(spinId, btn){
+  const spin = S.wheelSpins.find(s=>s.id===spinId);
+  if(!spin || spin.status!=='ready_to_spin') return;
+  btn.disabled = true;
+  const svg = document.getElementById('wheelSvg');
+  const pool = spin.poolChallengeIds.map(id=>S.wheelChallenges.find(c=>c.id===id)).filter(Boolean);
+  // pre-compute a big spin rotation for visual flourish while we resolve the real result
+  if(svg){ svg.style.transform = `rotate(${1080 + Math.random()*360}deg)`; }
+  const chosen = await performSpin(spin);
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(()=>{ notify(); if(chosen){ celebrate(); } }, chosen ? (reduced?150:2700) : 0);
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+async function boot(){
+  const ok = await initDb();
+  if(!ok){ render(); return; }
+  startSubscriptions();
+  try{ await ensureSeed(); }catch(e){ console.warn('seed error', e); }
+  render();
+}
+boot();
+
+})();
+</script>
+</body>
+</html>
