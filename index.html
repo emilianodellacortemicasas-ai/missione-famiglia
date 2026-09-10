@@ -484,6 +484,7 @@ const TABLE_MAP = {
   wheelSpins: "mf_wheel_spins",
   teamInstances: "mf_team_instances",
   teamContributions: "mf_team_contributions",
+  punishments: "mf_punishments",
 };
 
 let sbClient = null;
@@ -626,6 +627,7 @@ const S = {
   teamGoal:null,
   teamInstances:[],
   teamContributions:[],
+  punishments:[],
 };
 
 let renderQueued = false;
@@ -659,6 +661,7 @@ function startSubscriptions(){
   sub(doc('team/goal'), 'teamGoal', false);
   sub(col('teamInstances'), 'teamInstances', true);
   sub(col('teamContributions'), 'teamContributions', true);
+  sub(col('punishments'), 'punishments', true);
 }
 
 /* ============================================================
@@ -1018,6 +1021,18 @@ async function addCorrection(childId, amount, reason){
   });
 }
 
+/* Malus: punizioni attive "fino a nuovo ordine" (indipendenti dalle stelle) */
+async function assignPunishment(childId, title, description){
+  await col('punishments').add({
+    childId, title, description: description||'', active:true,
+    createdAt: nowIso(), createdBy:'genitore', resolvedAt:null, resolvedBy:null
+  });
+}
+async function resolvePunishment(id){
+  await doc('punishments/'+id).update({active:false, resolvedAt:nowIso(), resolvedBy:'genitore'});
+}
+async function deletePunishment(id){ await doc('punishments/'+id).delete(); }
+
 async function toggleFavorite(childId, rewardId){
   const c = childById(childId);
   const next = c.favoriteRewardId===rewardId ? null : rewardId;
@@ -1300,6 +1315,17 @@ function renderChildHome(child){
         </div>
       </div>
 
+      ${S.punishments.filter(p=>p.active && p.childId===child.id).length>0 ? `
+      <div class="card" style="border-color:var(--danger)55; background:var(--danger-soft)">
+        <div class="row-between" style="margin-bottom:8px"><span class="badge rejected">⛔ Punizione in corso</span></div>
+        <div class="stack" style="gap:8px">
+          ${S.punishments.filter(p=>p.active && p.childId===child.id).map(p=>`
+            <div><strong>${escapeHtml(p.title)}</strong>${p.description?`<p style="font-size:.85rem; color:var(--ink-soft)">${escapeHtml(p.description)}</p>`:''}</div>
+          `).join('')}
+        </div>
+        <p style="font-size:.78rem; color:var(--ink-faint); margin-top:8px">Resta valida finché un genitore non la rimuove.</p>
+      </div>` : ''}
+
       <div class="encourage"><span style="font-size:1.6rem">💬</span><p>${ENCOURAGEMENTS[msgIdx]}</p></div>
 
       <div class="card">
@@ -1547,6 +1573,7 @@ const PARENT_TABS = [
   {id:'inbox', label:'Conferme', ico:'📥'},
   {id:'missions', label:'Missioni', ico:'🗂️'},
   {id:'rewards', label:'Premi', ico:'🎁'},
+  {id:'malus', label:'Malus', ico:'⛔'},
   {id:'profiles', label:'Profili', ico:'🧒'},
   {id:'history', label:'Storico', ico:'📜'},
   {id:'weekly', label:'Riepilogo', ico:'📅'},
@@ -1563,6 +1590,7 @@ function renderParentScreen(tab){
   if(tab==='inbox') content = renderParentInbox();
   else if(tab==='missions') content = renderParentMissions();
   else if(tab==='rewards') content = renderParentRewards();
+  else if(tab==='malus') content = renderParentMalus();
   else if(tab==='profiles') content = renderParentProfiles();
   else if(tab==='history') content = renderParentHistory();
   else if(tab==='weekly') content = renderParentWeekly();
@@ -1702,6 +1730,56 @@ function renderParentRewards(){
   </div>`;
 }
 function maxFreqLabel(f){ return {unlimited:'illimitata', once_per_week:'1 volta a settimana', once_per_month:'1 volta al mese'}[f]||f; }
+
+function renderParentMalus(){
+  const kids = S.children.slice().sort((a,b)=>(a.order??0)-(b.order??0));
+  const activePunishments = S.punishments.filter(p=>p.active).slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
+  const resolvedPunishments = S.punishments.filter(p=>!p.active).slice().sort((a,b)=>(b.resolvedAt||'').localeCompare(a.resolvedAt||'')).slice(0,10);
+  return `<div class="stack" style="gap:22px">
+    <div><h2 style="font-size:1.1rem">Malus</h2><p style="font-size:.85rem; color:var(--ink-faint); margin-top:4px">Togli stelle già guadagnate oppure assegna una punizione che resta attiva finché non la rimuovi tu.</p></div>
+
+    <div class="card stack" style="gap:12px">
+      <div class="row-between"><h3 style="font-size:1rem">Togli stelle</h3><button class="btn danger sm" data-new-malus-points>− Togli punti</button></div>
+      <div class="grid grid-2">
+        ${kids.map(c=>`<div class="card row-between" style="box-shadow:none; background:var(--surface-2)"><div class="row" style="gap:10px"><div class="avatar" style="background:${c.color}33">${c.avatar}</div><strong>${escapeHtml(c.name)}</strong></div><span class="star-chip"><span class="s">${starIcon()}</span>${starBalance(c.id)}</span></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="stack" style="gap:12px">
+      <div class="row-between"><h3 style="font-size:1rem">Punizioni attive (${activePunishments.length})</h3><button class="btn danger sm" data-new-punishment>+ Nuova punizione</button></div>
+      ${activePunishments.length===0 ? `<div class="empty card"><span class="emoji">🙂</span>Nessuna punizione attiva al momento.</div>` : `
+      <div class="stack">
+        ${activePunishments.map(p=>{
+          const c = childById(p.childId);
+          return `<div class="card row-between wrap" style="gap:12px; border-color:var(--danger)55">
+            <div class="row" style="gap:10px">
+              <div class="avatar" style="background:${c?c.color+'33':'var(--surface-2)'}">${c?c.avatar:'❓'}</div>
+              <div><strong>${escapeHtml(p.title)}</strong>${p.description?`<p style="font-size:.8rem; color:var(--ink-faint)">${escapeHtml(p.description)}</p>`:''}<p style="font-size:.76rem; color:var(--ink-faint)">${c?escapeHtml(c.name):''} · dal ${fmtDateTimeIt(p.createdAt)} · in vigore fino a nuovo ordine</p></div>
+            </div>
+            <button class="btn good sm" data-resolve-punishment="${p.id}">Rimuovi</button>
+          </div>`;
+        }).join('')}
+      </div>`}
+    </div>
+
+    ${resolvedPunishments.length>0 ? `
+    <div class="stack" style="gap:10px">
+      <div class="section-title"><h2 style="font-size:1rem">Punizioni concluse (ultime)</h2></div>
+      <div class="stack">
+        ${resolvedPunishments.map(p=>{
+          const c = childById(p.childId);
+          return `<div class="card row-between wrap" style="gap:12px; opacity:.65">
+            <div class="row" style="gap:10px">
+              <div class="avatar" style="background:${c?c.color+'33':'var(--surface-2)'}">${c?c.avatar:'❓'}</div>
+              <div><strong>${escapeHtml(p.title)}</strong><p style="font-size:.76rem; color:var(--ink-faint)">${c?escapeHtml(c.name):''} · conclusa il ${fmtDateTimeIt(p.resolvedAt)}</p></div>
+            </div>
+            <button class="btn ghost sm" data-delete-punishment="${p.id}">Elimina</button>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>` : ''}
+  </div>`;
+}
 
 function renderParentProfiles(){
   const kids = S.children.slice().sort((a,b)=>(a.order??0)-(b.order??0));
@@ -1867,7 +1945,7 @@ function wireScreenEvents(route){
   if(!main) return;
 
   main.addEventListener('click', async (e)=>{
-    const t = e.target.closest('[data-select-child],[data-nav],[data-mark-done],[data-fav],[data-request-reward],[data-cancel-request],[data-spin],[data-spin-done],[data-spin-alt],[data-team-done],[data-approve],[data-postpone],[data-approve-reward],[data-reject-reward],[data-confirm-team],[data-confirm-spin],[data-spin-reset],[data-spin-pick],[data-new-mission],[data-edit-mission],[data-delete-mission],[data-suspend-mission],[data-assign-occasional],[data-new-reward],[data-edit-reward],[data-toggle-reward],[data-delete-reward],[data-new-child],[data-edit-child],[data-open-correction],[data-new-wheel],[data-edit-wheel],[data-delete-wheel],[data-edit-team],[data-manual-contrib],[data-change-pin],[data-lock-now],[data-pinkey],[data-ptab],[data-activate-wheel-goal]');
+    const t = e.target.closest('[data-select-child],[data-nav],[data-mark-done],[data-fav],[data-request-reward],[data-cancel-request],[data-spin],[data-spin-done],[data-spin-alt],[data-team-done],[data-approve],[data-postpone],[data-approve-reward],[data-reject-reward],[data-confirm-team],[data-confirm-spin],[data-spin-reset],[data-spin-pick],[data-new-mission],[data-edit-mission],[data-delete-mission],[data-suspend-mission],[data-assign-occasional],[data-new-reward],[data-edit-reward],[data-toggle-reward],[data-delete-reward],[data-new-child],[data-edit-child],[data-open-correction],[data-new-malus-points],[data-new-punishment],[data-resolve-punishment],[data-delete-punishment],[data-new-wheel],[data-edit-wheel],[data-delete-wheel],[data-edit-team],[data-manual-contrib],[data-change-pin],[data-lock-now],[data-pinkey],[data-ptab],[data-activate-wheel-goal]');
     if(!t) return;
 
     if(t.dataset.selectChild){ location.hash = '#/child/'+t.dataset.selectChild; return; }
@@ -1911,6 +1989,11 @@ function wireScreenEvents(route){
     if(t.dataset.editChild){ openChildModal(childById(t.dataset.editChild)); return; }
 
     if(t.dataset.openCorrection!==undefined){ openCorrectionModal(); return; }
+
+    if(t.dataset.newMalusPoints!==undefined){ openMalusPointsModal(); return; }
+    if(t.dataset.newPunishment!==undefined){ openPunishmentModal(); return; }
+    if(t.dataset.resolvePunishment){ await resolvePunishment(t.dataset.resolvePunishment); toast('Punizione rimossa','✅'); return; }
+    if(t.dataset.deletePunishment){ if(confirm('Eliminare questa punizione dallo storico?')) await deletePunishment(t.dataset.deletePunishment); return; }
 
     if(t.dataset.newWheel!==undefined){ openWheelModal(null); return; }
     if(t.dataset.editWheel){ openWheelModal(S.wheelChallenges.find(c=>c.id===t.dataset.editWheel)); return; }
@@ -2239,6 +2322,51 @@ function openCorrectionModal(){
       if(!amount){ toast('Inserisci una variazione diversa da zero','⚠️'); return; }
       await addCorrection(root.querySelector('#corChild').value, amount, reason);
       closeModal(); toast('Correzione applicata','✅');
+    };
+  });
+}
+
+function openMalusPointsModal(){
+  const kids = S.children;
+  openModal(`
+    <div class="modal-head"><h3>Togli punti</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <div class="field"><label>Bambina</label><select id="mpChild">${kids.map(c=>`<option value="${c.id}">${escapeHtml(c.name)}</option>`).join('')}</select></div>
+      <div class="field"><label>Stelle da togliere</label><input type="number" id="mpAmount" min="1" value="5"></div>
+      <div class="field"><label>Motivo (obbligatorio)</label><textarea id="mpReason" placeholder="Es. Comportamento scorretto a tavola"></textarea></div>
+      <button class="btn danger block" id="mpSave">Togli punti</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#mpSave').onclick = async ()=>{
+      const reason = root.querySelector('#mpReason').value.trim();
+      const amount = Math.abs(Number(root.querySelector('#mpAmount').value))||0;
+      if(!reason){ toast('Il motivo è obbligatorio','⚠️'); return; }
+      if(!amount){ toast('Inserisci una quantità di stelle da togliere','⚠️'); return; }
+      await addCorrection(root.querySelector('#mpChild').value, -amount, reason);
+      closeModal(); toast('Punti tolti','➖');
+    };
+  });
+}
+
+function openPunishmentModal(){
+  const kids = S.children;
+  openModal(`
+    <div class="modal-head"><h3>Nuova punizione</h3><button class="icon-btn" data-close>✕</button></div>
+    <div class="stack" style="gap:14px">
+      <p style="font-size:.85rem; color:var(--ink-soft)">Resterà attiva finché non la rimuovi tu ("fino a nuovo ordine").</p>
+      <div class="field"><label>Bambina</label><select id="puChild">${kids.map(c=>`<option value="${c.id}">${escapeHtml(c.name)}</option>`).join('')}</select></div>
+      <div class="field"><label>Punizione</label><input type="text" id="puTitle" placeholder="Es. Niente tablet"></div>
+      <div class="field"><label>Motivo / dettagli (facoltativo)</label><textarea id="puDesc"></textarea></div>
+      <button class="btn danger block" id="puSave">Assegna punizione</button>
+    </div>
+  `, (root)=>{
+    root.querySelector('[data-close]').onclick = closeModal;
+    root.querySelector('#puSave').onclick = async ()=>{
+      const title = root.querySelector('#puTitle').value.trim();
+      if(!title){ toast('Inserisci una punizione','⚠️'); return; }
+      await assignPunishment(root.querySelector('#puChild').value, title, root.querySelector('#puDesc').value.trim());
+      closeModal(); toast('Punizione assegnata','⛔');
     };
   });
 }
