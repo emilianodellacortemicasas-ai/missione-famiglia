@@ -1229,8 +1229,7 @@ function render(){
       <div class="topbar-spacer"></div>
       ${route[0]!=='parent' ? `<a class="pill-btn" href="#/parent">🔒 Genitori</a>` : ''}
     </div>
-    <main id="mainArea">${body}</main>
-    ${route[0]==='child' && route[1] ? renderBottomNav(route[1], route[2]||'home') : ''}
+    <main id="mainArea">${body}${route[0]==='child' && route[1] ? renderBottomNav(route[1], route[2]||'home') : ''}</main>
   `;
   const back = document.getElementById('backBtn');
   if(back) back.addEventListener('click', ()=>{ history.back(); setTimeout(()=>{ if(getRoute().join('/')===route.join('/')) location.hash=''; }, 60); });
